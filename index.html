@@ -2,16 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#06111f" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="Trading Manager" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <title>Trading Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panini Adrenalyn XL World Cup 2026 Trading Manager</title>
   <style>
     :root {
       --bg: #06111f;
@@ -499,7 +491,7 @@
   
     .trade-actions {
       display: grid !important;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 10px;
     }
     .trade-actions button {
@@ -1399,182 +1391,134 @@
     }
 
   
-    /* V53 iPhone / Smartphone Optimierung */
-    textarea, input, select {
-      font-size: 16px; /* verhindert iOS-Zoom beim Tippen */
+    /* V53 Willhaben-Text im Tauschbereich */
+    .trade-actions button.orange {
+      background: rgba(251, 146, 60, .18);
+      border-color: rgba(251, 146, 60, .45);
+      color: #fed7aa;
     }
-
-    button,
-    .tabs button,
-    input,
-    select,
-    textarea {
-      min-height: 44px; /* bessere Touch-Fläche */
+    .trade-actions button.orange:hover {
+      background: rgba(251, 146, 60, .28);
+      border-color: rgba(251, 146, 60, .62);
     }
-
-    @media (max-width: 700px) {
-      body {
-        padding: max(10px, env(safe-area-inset-top)) 10px max(16px, env(safe-area-inset-bottom));
-        background-attachment: fixed;
-      }
-
-      .container {
-        width: 100%;
-        max-width: 100%;
-      }
-
-      h1 {
-        font-size: 26px;
-        line-height: 1.08;
-      }
-
-      h2 {
-        font-size: 19px;
-      }
-
-      .subtitle {
-        font-size: 13px;
-        margin-bottom: 14px;
-      }
-
-      .topbar {
-        gap: 10px;
-        margin-bottom: 14px;
-      }
-
-      .badge {
-        white-space: normal;
-        line-height: 1.35;
-      }
-
-      .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-      }
-
-      .metric {
-        padding: 12px;
-        border-radius: 15px;
-      }
-
-      .metric .value {
-        font-size: 22px;
-      }
-
-      .box {
-        padding: 13px;
-        border-radius: 16px;
-      }
-
-      .grid-main {
-        gap: 14px;
-      }
-
-      .grid-main > div > .box {
-        height: auto;
-        min-height: 0;
-        overflow: visible;
-      }
-
-      .grid-main > div > .box > .tab-content.active {
-        overflow: visible;
-        min-height: 0;
-      }
-
-      .tabs {
-        display: flex;
-        overflow-x: auto;
-        gap: 8px;
-        padding-bottom: 2px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .tabs button {
-        flex: 0 0 auto;
-        min-width: 118px;
-        padding: 10px 12px;
-      }
-
-      .button-row {
-        gap: 8px;
-      }
-
-      .button-row button {
-        flex: 1 1 auto;
-        padding: 11px 12px;
-      }
-
-      #list-check .check-action-spacer {
-        display: none;
-      }
-
-      #list-check .check-actions button {
-        flex: 1 1 calc(50% - 8px);
-      }
-
-      #list-check .check-actions button.orange {
-        flex-basis: 100%;
-      }
-
-      #list-all .table-wrap,
-      #list-doubles .table-wrap,
-      #list-wishlist .table-wrap,
-      #list-check .table-wrap {
-        max-height: 58vh !important;
-        flex: none;
-      }
-
-      .table-wrap {
-        border-radius: 12px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .table-wrap table {
-        min-width: 760px;
-      }
-
-      #side-category .table-wrap table,
-      #side-backup .table-wrap table,
-      #side-prices .table-wrap table {
-        min-width: 620px;
-      }
-
-      th, td {
-        padding: 9px 8px;
-        font-size: 13px;
-      }
-
-      #tradeGiveInput,
-      #tradeGetInput {
-        height: 120px;
-        min-height: 120px;
-      }
-
-      .mini-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trade-summary {
-        grid-template-columns: 1fr;
+    @media (max-width: 1050px) {
+      .trade-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
     }
 
-    @media (max-width: 390px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
+  
+    /* V54 Reservierungen aus offenen gespeicherten Tauschen */
+    .reserve-note {
+      display: inline-flex;
+      vertical-align: middle;
+      align-items: center;
+      gap: 4px;
+      margin-left: 4px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(251, 146, 60, .45);
+      background: rgba(251, 146, 60, .13);
+      color: #fed7aa;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+    .reserve-note.expected {
+      border-color: rgba(45, 212, 191, .46);
+      background: rgba(45, 212, 191, .14);
+      color: #99f6e4;
+    }
+    .count-with-note {
+      display: inline-grid;
+      grid-template-columns: minmax(1.4em, max-content) max-content;
+      align-items: center;
+      column-gap: 4px;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    .count-with-note .count-number {
+      display: inline-block;
+      min-width: 1.4em;
+      text-align: left;
+    }
+    .pill.expected {
+      background: rgba(45, 212, 191, .14) !important;
+      border-color: rgba(45, 212, 191, .46) !important;
+      color: #99f6e4 !important;
+    }
+    #catalogTable td:nth-child(5),
+    #catalogTable td:nth-child(6),
+    #inventoryTable td:nth-child(4),
+    #wishlistTable td:nth-child(5) {
+      white-space: nowrap;
+    }
+    .status-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+    .pill.orange {
+      background: rgba(251, 146, 60, .14) !important;
+      border-color: rgba(251, 146, 60, .45) !important;
+      color: #fed7aa !important;
+    }
 
-      .tabs button {
-        min-width: 108px;
-      }
+  
+    /* V57 Warnungen rot und gut sichtbar */
+    .message.error,
+    .message.show.error {
+      border-color: rgba(239, 68, 68, .58) !important;
+      background: rgba(127, 29, 29, .34) !important;
+      color: #fecaca !important;
+    }
 
-      .button-row button {
-        flex-basis: 100%;
-      }
+  
+    /* V58 Gesucht-Liste: Zahl bleibt an gleicher Stelle, erwartet steht rechts daneben */
+    #wishlistTable .wishlist-count-cell {
+      position: relative;
+      text-align: center;
+      white-space: nowrap;
+      min-width: 92px;
+    }
+    #wishlistTable .wishlist-count-cell .count-with-note {
+      display: inline-flex !important;
+      position: relative;
+      width: 1.6em;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    #wishlistTable .wishlist-count-cell .count-number {
+      display: inline-block;
+      min-width: 1.6em;
+      text-align: center;
+    }
+    #wishlistTable .wishlist-count-cell .reserve-note {
+      position: absolute;
+      left: calc(100% + 6px);
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 0;
+    }
 
-      #list-check .check-actions button {
-        flex-basis: 100%;
-      }
+  
+    /* V61: echte fixe Tabellen-Kopfzeile ohne Farb-/Designänderung */
+    .table-wrap {
+      position: relative;
+    }
+    .sticky-header-clone {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      pointer-events: none;
+      margin: 0;
+    }
+    .sticky-header-clone th {
+      box-sizing: border-box;
     }
 
   </style>
@@ -1701,7 +1645,7 @@ Messi, Florian Wirtz, Lamine Yamal"></textarea>
               <button class="blue" onclick="checkCards()">Prüfen</button>
               <button class="secondary" onclick="clearCheckFields()">Feld leeren</button>
               <span class="check-action-spacer"></span>
-              <button class="orange" onclick="pushCheckToTrade('give')">↓ zu Ich gebe ab</button>
+              <button class="orange" onclick="pushCheckToTrade('give')">↓ zu Ich gebe</button>
               <button class="orange" onclick="pushCheckToTrade('get')">↓ zu Ich bekomme</button>
             </div>
             <div id="checkMessage" class="message"></div>
@@ -1710,10 +1654,10 @@ Messi, Florian Wirtz, Lamine Yamal"></textarea>
               <table>
                 <thead>
                   <tr>
-                    <th>Nr.</th><th>Status</th><th>Gesucht</th><th>Eingegeben</th><th>Vorhanden</th><th>Berechnet</th><th>Karte</th><th>Land/Team</th><th>Kategorie</th><th>Wert</th>
+                    <th>Nr.</th><th>Status</th><th>Eingegeben</th><th>Vorhanden</th><th>Berechnet</th><th>Karte</th><th>Land/Team</th><th>Kategorie</th><th>Wert</th>
                   </tr>
                 </thead>
-                <tbody id="checkTable"><tr><td colspan="10" style="color:var(--muted);">Noch nichts geprüft.</td></tr></tbody>
+                <tbody id="checkTable"><tr><td colspan="9" style="color:var(--muted);">Noch nichts geprüft.</td></tr></tbody>
                 <tfoot id="checkTableFoot"></tfoot>
               </table>
             </div>
@@ -1830,7 +1774,7 @@ Messi, Florian Wirtz, Lamine Yamal"></textarea>
 
       <div class="mini-grid" style="margin-top:14px;">
         <div>
-          <label for="tradeGiveInput">Ich gebe ab</label>
+          <label for="tradeGiveInput">Ich gebe</label>
           <textarea id="tradeGiveInput" class="textarea-small" placeholder="Beispiel:
 10, 514, LE001
 oder
@@ -1852,12 +1796,13 @@ oder exakt: Florian Wirtz"></textarea>
         <button class="blue" onclick="calculateTrade()">Tausch prüfen</button>
         <button class="secondary" id="tradeSaveButton" onclick="savePlannedTrade()">Tausch speichern</button>
         <button onclick="completeTrade()">Tausch bestätigen</button>
+        <button class="orange" onclick="copyWillhabenTradeText()">Tauschtext</button>
         <button class="ghost" id="tradeClearButton" onclick="clearTradeFields()">Felder leeren</button>
       </div>
       <div id="tradeMessage" class="message"></div>
 
       <div class="trade-summary" id="tradeSummary" style="display:none;">
-        <div class="trade-card"><div class="label">Ich gebe ab</div><div class="value" id="tradeGiveValue">0,00 €</div></div>
+        <div class="trade-card"><div class="label">Ich gebe</div><div class="value" id="tradeGiveValue">0,00 €</div></div>
         <div class="trade-card"><div class="label">Ich bekomme</div><div class="value" id="tradeGetValue">0,00 €</div></div>
         <div class="trade-card"><div class="label">Bewertung</div><div class="value" id="tradeFairness">Noch offen</div></div>
       </div>
@@ -1907,7 +1852,7 @@ oder exakt: Florian Wirtz"></textarea>
   </div>
 
   <div class="footer">
-      Speicherung läuft lokal im Browser. Wenn du Browserdaten löschst, können doppelte Karten, gesuchte Karten und die Tauschhistorie weg sein. Deshalb regelmäßig Backup exportieren.
+      Version: V63 · GitHub Pages: diese Datei als <strong>index.html</strong> hochladen · Speicherung läuft lokal im Browser. Wenn du Browserdaten löschst, können doppelte Karten, gesuchte Karten und die Tauschhistorie weg sein. Deshalb regelmäßig Backup exportieren.
     </div>
   </div>
 
@@ -2763,6 +2708,113 @@ oder exakt: Florian Wirtz"></textarea>
       return `<span class="trade-diff ${tradeDiffClass(diff)}">${tradeDiffText(diff)}</span>`;
     }
 
+    function getPendingReservations(excludeId = null) {
+      const give = {};
+      const get = {};
+      const items = Array.isArray(tradeHistory) ? tradeHistory : [];
+
+      items.forEach(item => {
+        if (!item || item.status === "erledigt") return;
+        if (excludeId && item.id === excludeId) return;
+
+        Object.entries(item.give || {}).forEach(([id, count]) => {
+          const key = normalizeCardId(id);
+          if (isKnownCard(key) && Number(count || 0) > 0) {
+            give[key] = (give[key] || 0) + Number(count || 0);
+          }
+        });
+
+        Object.entries(item.get || {}).forEach(([id, count]) => {
+          const key = normalizeCardId(id);
+          if (isKnownCard(key) && Number(count || 0) > 0) {
+            get[key] = (get[key] || 0) + Number(count || 0);
+          }
+        });
+      });
+
+      return { give, get };
+    }
+
+    function reservedCount(id, side = "any", excludeId = null) {
+      const key = normalizeCardId(id);
+      const reservations = getPendingReservations(excludeId);
+      if (side === "give") return reservations.give[key] || 0;
+      if (side === "get") return reservations.get[key] || 0;
+      return (reservations.give[key] || 0) + (reservations.get[key] || 0);
+    }
+
+    function reservedMarker(id, side = "any") {
+      const count = reservedCount(id, side);
+      if (!count) return "";
+      const label = side === "get" ? "erwartet" : "reserviert";
+      return `<span class="reserve-note ${side === "get" ? "expected" : "reserved"}">${label}</span>`;
+    }
+
+    function countWithReservation(count, id, side = "any") {
+      return `<span class="count-with-note"><span class="count-number">${count}</span>${reservedMarker(id, side)}</span>`;
+    }
+
+    function statusPillsForCheck(row) {
+      const pills = [];
+      if (row.ownedCount > 0) pills.push('<span class="pill green">Vorhanden</span>');
+      if (row.wantedCount > 0) pills.push('<span class="pill blue">Gesucht</span>');
+      if (row.ownedCount <= 0 && row.wantedCount <= 0) pills.push('<span class="pill red">Nicht vorhanden</span>');
+
+      const reserveGive = reservedCount(row.number, "give");
+      const reserveGet = reservedCount(row.number, "get");
+      if (reserveGive > 0) pills.push('<span class="pill orange">reserviert</span>');
+      if (reserveGet > 0) pills.push('<span class="pill expected">erwartet</span>');
+
+      return `<div class="status-stack">${pills.join("")}</div>`;
+    }
+
+    function hasReservedCards(obj = {}, side = "any") {
+      return Object.keys(obj || {}).some(id => reservedCount(id, side) > 0);
+    }
+
+    function uniqueCardRefs(numbers = []) {
+      const seen = new Set();
+      const refs = [];
+
+      numbers.forEach(number => {
+        const key = normalizeCardId(number);
+        if (!key || seen.has(key)) return;
+        seen.add(key);
+        refs.push(cardReference(key));
+      });
+
+      return refs;
+    }
+
+    function groupedPendingWarning(reservedNumbers = [], expectedNumbers = [], prefix = "Warnung:") {
+      const parts = [];
+      const reservedRefs = uniqueCardRefs(reservedNumbers);
+      const expectedRefs = uniqueCardRefs(expectedNumbers);
+
+      if (reservedRefs.length) parts.push(`Reserviert: ${reservedRefs.join(", ")}`);
+      if (expectedRefs.length) parts.push(`Erwartet: ${expectedRefs.join(", ")}`);
+
+      if (!parts.length) return "";
+      return `${prefix} ${parts.join(". ")}.`;
+    }
+
+    function groupedTradeWarning(result = {}) {
+      const rows = result.rows || [];
+      const reservedNumbers = rows.filter(row => String(row.note || "").toLowerCase().includes("reserviert")).map(row => row.number);
+      const expectedNumbers = rows.filter(row => String(row.note || "").toLowerCase().includes("erwartet")).map(row => row.number);
+      const pendingWarning = groupedPendingWarning(reservedNumbers, expectedNumbers, "");
+      const otherWarnings = (result.warnings || []).filter(warning => {
+        const value = normalizeText(warning);
+        return !value.includes("offenen gespeicherten tausch") && !value.includes("reserviert") && !value.includes("erwartet");
+      });
+
+      const parts = [];
+      if (pendingWarning) parts.push(pendingWarning.trim());
+      if (otherWarnings.length) parts.push(otherWarnings.join(" "));
+
+      return parts.join(" ").trim();
+    }
+
     function loadDatabase() {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
@@ -2799,6 +2851,7 @@ oder exakt: Florian Wirtz"></textarea>
       renderCatalog();
       renderWishlist();
       renderHistory();
+      scheduleStickyTableHeadersAfterLoad();
     }
 
     function loadWishlist() {
@@ -3002,7 +3055,7 @@ oder exakt: Florian Wirtz"></textarea>
 
       const tbody = document.getElementById("checkTable");
       const tfoot = document.getElementById("checkTableFoot");
-      if (tbody) tbody.innerHTML = `<tr><td colspan="10" style="color:var(--muted);">Noch nichts geprüft.</td></tr>`;
+      if (tbody) tbody.innerHTML = `<tr><td colspan="9" style="color:var(--muted);">Noch nichts geprüft.</td></tr>`;
       if (tfoot) tfoot.innerHTML = "";
 
       lastCheckResult = null;
@@ -3022,7 +3075,7 @@ oder exakt: Florian Wirtz"></textarea>
 
       if (numbers.length === 0) {
         lastCheckResult = null;
-        tbody.innerHTML = `<tr><td colspan="10" style="color:var(--muted);">Keine gültigen Nummern, Codes oder Namen erkannt.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9" style="color:var(--muted);">Keine gültigen Nummern, Codes oder Namen erkannt.</td></tr>`;
         if (suggestions.length) {
           showMessage("checkMessage", "Die Eingabe ist mehrdeutig. Wähle unten die passende Karte aus.", "info");
         } else {
@@ -3066,16 +3119,11 @@ oder exakt: Florian Wirtz"></textarea>
         return { number, requestedCount, ownedCount, wantedCount, calculatedCount, info, calculatedValue };
       });
 
-      renderGroupedRows(tbody, checkRows, 10, row => {
+      renderGroupedRows(tbody, checkRows, 9, row => {
         const tr = document.createElement("tr");
-        const wantedHtml = row.wantedCount > 0
-          ? '<span class="pill blue">Gesucht</span>'
-          : '<span class="pill muted">Nicht gesucht</span>';
-
         tr.innerHTML = `
           <td><strong>${displayListCardId(row.number)}</strong></td>
-          <td>${row.ownedCount > 0 ? '<span class="pill green">Vorhanden</span>' : '<span class="pill red">Nicht vorhanden</span>'}</td>
-          <td>${wantedHtml}</td>
+          <td>${statusPillsForCheck(row)}</td>
           <td>${row.requestedCount}</td>
           <td>${row.ownedCount}</td>
           <td>${row.calculatedCount}</td>
@@ -3092,7 +3140,7 @@ oder exakt: Florian Wirtz"></textarea>
       const sumRow = document.createElement("tr");
       sumRow.className = "sum-row";
       sumRow.innerHTML = `
-        <td colspan="3"><span class="sum-label">Summe</span></td>
+        <td colspan="2"><span class="sum-label">Summe</span></td>
         <td>${requestedTotalCards}</td>
         <td>${ownedTotalCards}</td>
         <td>${calculatedTotalCards}</td>
@@ -3101,10 +3149,17 @@ oder exakt: Florian Wirtz"></textarea>
       `;
       tfoot.appendChild(sumRow);
 
+      const reservedRows = checkRows.filter(row => reservedCount(row.number, "give") > 0);
+      const expectedRows = checkRows.filter(row => reservedCount(row.number, "get") > 0);
+      const reservedInCheck = reservedRows.length;
+      const expectedInCheck = expectedRows.length;
       let msg = `${ownedUniqueCount} von ${numbers.length} geprüften Nummern sind vorhanden. Gesucht: ${wantedUniqueCount} von ${numbers.length}.`;
+      if (reservedInCheck || expectedInCheck) {
+        msg = groupedPendingWarning(reservedRows.map(row => row.number), expectedRows.map(row => row.number));
+      }
       if (suggestions.length) msg += " Einige Eingaben sind mehrdeutig. Wähle unten die passende Karte aus.";
       if (invalid.length) msg += ` Nicht erkannt: ${invalid.join(", ")}.`;
-      showMessage("checkMessage", msg, invalid.length || suggestions.length ? "info" : "ok");
+      showMessage("checkMessage", msg, reservedInCheck || expectedInCheck ? "error" : (invalid.length || suggestions.length ? "info" : "ok"), { temporary: !(reservedInCheck || expectedInCheck || invalid.length || suggestions.length) });
     }
 
     function formatCardsForTradeInput(obj) {
@@ -3138,7 +3193,7 @@ oder exakt: Florian Wirtz"></textarea>
       }
 
       const textareaId = target === "give" ? "tradeGiveInput" : "tradeGetInput";
-      const label = target === "give" ? "Ich gebe ab" : "Ich bekomme";
+      const label = target === "give" ? "Ich gebe" : "Ich bekomme";
       appendToTradeTextarea(textareaId, cardsText);
       calculateTrade();
       clearCheckFields();
@@ -3287,7 +3342,7 @@ oder exakt: Florian Wirtz"></textarea>
           <td><strong>${displayCardId(row.number)}</strong></td>
           <td>${row.name}</td>
           <td>${row.team}</td>
-          <td>${row.count}</td>
+          <td>${countWithReservation(row.count, row.number, "give")}</td>
           <td><span class="pill">${row.category}</span></td>
           <td>${euro(row.price)}</td>
           <td><strong>${euro(row.value)}</strong></td>
@@ -3335,8 +3390,8 @@ oder exakt: Florian Wirtz"></textarea>
           <td>${card.name}</td>
           <td>${card.team}</td>
           <td><span class="pill">${card.category}</span></td>
-          <td>${doubleCount}</td>
-          <td>${wantedCount}</td>
+          <td>${countWithReservation(doubleCount, card.number, "give")}</td>
+          <td>${countWithReservation(wantedCount, card.number, "get")}</td>
           <td>${euro(price)}</td>
           <td><strong>${euro(doubleCount * price)}</strong></td>
           <td>
@@ -3526,7 +3581,10 @@ oder exakt: Florian Wirtz"></textarea>
         "beschädigt",
         "prufe deine eingabe",
         "prüfe deine eingabe",
-        "nicht vorhanden"
+        "nicht vorhanden",
+        "warnung",
+        "reserviert",
+        "erwartet"
       ];
 
       if (importantWords.some(word => value.includes(normalizeText(word)))) {
@@ -3604,10 +3662,10 @@ oder exakt: Florian Wirtz"></textarea>
 
       document.getElementById("list-" + name).classList.add("active");
 
-      if (name === "all") renderCatalog();
-      if (name === "doubles") renderAll();
-      if (name === "wishlist") renderWishlist();
+      // V63: Beim Tab-Wechsel keine großen Tabellen unnötig neu rendern.
+      // Die Listen sind bereits geladen und werden bei echten Änderungen aktualisiert.
       if (name === "copy") generateCopyText("all");
+      scheduleStickyTableHeaders();
     }
 
     function showSideTab(name, button) {
@@ -3623,6 +3681,7 @@ oder exakt: Florian Wirtz"></textarea>
 
       if (name === "category") renderCategoryTable();
       if (name === "prices") renderPriceSettings();
+      scheduleStickyTableHeaders();
     }
 
     function showTab(name, button) {
@@ -3727,7 +3786,7 @@ oder exakt: Florian Wirtz"></textarea>
           <td>${row.name}</td>
           <td>${row.team}</td>
           <td><span class="pill">${row.category}</span></td>
-          <td>${row.count}</td>
+          <td class="wishlist-count-cell">${countWithReservation(row.count, row.number, "get")}</td>
           <td><strong>${euro(row.value)}</strong></td>
         `;
         return tr;
@@ -3753,15 +3812,19 @@ oder exakt: Florian Wirtz"></textarea>
         giveCount += calculated;
 
         let note = "OK";
+        const reserved = reservedCount(number, "give", editingTradeId);
         if (available === 0) {
           note = "Nicht vorhanden";
           warnings.push(`Karte ${cardReference(number)} ist nicht in deiner Liste der doppelten Karten.`);
         } else if (requested > available) {
           note = `Nur ${available} verfügbar`;
           warnings.push(`Karte ${cardReference(number)}: eingegeben ${requested}, verfügbar ${available}.`);
+        } else if (reserved > 0) {
+          note = "Reserviert";
+          warnings.push(`Karte ${cardReference(number)} ist bereits in einem offenen gespeicherten Tausch reserviert.`);
         }
 
-        rows.push({ side: "Ich gebe", number, info, requested, reference: available, calculated, value, note });
+        rows.push({ side: "Ich gebe", number, info, requested, reference: available, calculated, value, note, reserved });
       });
 
       sortEntries(Object.entries(get).map(([number, count]) => [number, count])).forEach(([number, requested]) => {
@@ -3770,8 +3833,13 @@ oder exakt: Florian Wirtz"></textarea>
         const value = requested * (prices[info.category] || 0);
         getValue += value;
         getCount += requested;
-        const note = wanted > 0 ? "Gesucht" : "Extra";
-        rows.push({ side: "Ich bekomme", number, info, requested, reference: wanted, calculated: requested, value, note });
+        const reserved = reservedCount(number, "get", editingTradeId);
+        let note = wanted > 0 ? "Gesucht" : "Extra";
+        if (reserved > 0) {
+          note = "Erwartet";
+          warnings.push(`Karte ${cardReference(number)} wird bereits in einem offenen gespeicherten Tausch erwartet.`);
+        }
+        rows.push({ side: "Ich bekomme", number, info, requested, reference: wanted, calculated: requested, value, note, reserved });
       });
 
       const fairness = evaluateFairness(giveValue, getValue, warnings.length > 0);
@@ -3784,6 +3852,8 @@ oder exakt: Florian Wirtz"></textarea>
       if (text === "gesucht") return "blue";
       if (text.includes("nicht vorhanden")) return "red";
       if (text.includes("nur ")) return "orange";
+      if (text.includes("reserviert")) return "orange";
+      if (text.includes("erwartet")) return "expected";
       if (text === "extra") return "muted";
       return "";
     }
@@ -3794,7 +3864,7 @@ oder exakt: Florian Wirtz"></textarea>
     }
 
     function sidePill(side) {
-      if (side === "Ich gebe") return `<span class="side-pill give">Ich gebe ab</span>`;
+      if (side === "Ich gebe") return `<span class="side-pill give">Ich gebe</span>`;
       return `<span class="side-pill get">Ich bekomme</span>`;
     }
 
@@ -3837,7 +3907,7 @@ oder exakt: Florian Wirtz"></textarea>
       const giveRows = result.rows.filter(row => row.side === "Ich gebe");
       const getRows = result.rows.filter(row => row.side === "Ich bekomme");
 
-      appendTradeRows(tbody, "Ich gebe ab", "give", giveRows);
+      appendTradeRows(tbody, "Ich gebe", "give", giveRows);
       appendTradeRows(tbody, "Ich bekomme", "get", getRows);
 
       const diff = result.getValue - result.giveValue;
@@ -3898,11 +3968,15 @@ oder exakt: Florian Wirtz"></textarea>
       const diff = result.getValue - result.giveValue;
       const diffText = tradeDiffText(diff);
 
-      let msg = `Tausch geprüft. ${result.fairness.text}. Differenz für dich: ${diffText}.`;
+      const groupedWarning = groupedTradeWarning(result);
+      let msg = `Tausch geprüft. ${result.fairness.text}.`;
+      if (groupedWarning) {
+        msg = `Warnung: ${groupedWarning}`;
+      }
       if (giveParsed.invalid.length || getParsed.invalid.length) {
         msg += ` Nicht erkannt: ${giveParsed.invalid.concat(getParsed.invalid).join(", ")}.`;
       }
-      showMessage("tradeMessage", msg, giveParsed.invalid.length || getParsed.invalid.length ? "info" : "ok");
+      showMessage("tradeMessage", msg, groupedWarning ? "error" : (giveParsed.invalid.length || getParsed.invalid.length ? "info" : "ok"), { temporary: !(groupedWarning || giveParsed.invalid.length || getParsed.invalid.length) });
 
       return result;
     }
@@ -4184,6 +4258,91 @@ oder exakt: Florian Wirtz"></textarea>
       document.getElementById("tradeSummary").style.display = "none";
       lastTradeResult = null;
       if (clearMessage) showMessage("tradeMessage", "Tauschfelder geleert.", "info");
+    }
+
+    function isBaseCardId(id) {
+      const info = getInfo(id);
+      const numeric = parseInt(String(info.number), 10);
+      return !Number.isNaN(numeric) && numeric >= 1 && numeric <= 630;
+    }
+
+    function willhabenCardLabel(id, count = 1) {
+      const key = normalizeCardId(id);
+      const info = getInfo(key);
+      const category = info.category || "";
+      const amount = Number(count || 0) > 1 ? ` (x${Number(count)})` : "";
+
+      if (isBaseCardId(key)) {
+        return `${displayCardId(key)}${amount}`;
+      }
+
+      if (category === "Limited Edition" || category === "LE Squad DFB") {
+        return `${info.name} LE${amount}`;
+      }
+
+      if (category === "Premium LE Silber") {
+        return `${info.name} PLE Silber${amount}`;
+      }
+
+      if (category === "Premium Gold LE") {
+        return `${info.name} Premium Gold LE${amount}`;
+      }
+
+      if (category === "Momentum LE") {
+        return `${info.name} Momentum LE${amount}`;
+      }
+
+      if (category === "Exclusive LE Update Set") {
+        return `${info.name} Update LE${amount}`;
+      }
+
+      if (category === "Trophy Card") {
+        return `${info.name}${amount}`;
+      }
+
+      return `${cardReference(key)}${amount}`;
+    }
+
+    function formatWillhabenTradeCards(obj = {}) {
+      const entries = sortEntries(Object.entries(obj)
+        .map(([id, count]) => [normalizeCardId(id), Number(count || 0)])
+        .filter(([id, count]) => count > 0 && isKnownCard(id)));
+
+      if (!entries.length) return "Keine";
+      return entries.map(([id, count]) => willhabenCardLabel(id, count)).join(", ");
+    }
+
+    function buildWillhabenTradeText() {
+      const result = calculateTrade();
+      if (!result) return "";
+
+      const giveText = formatWillhabenTradeCards(result.give);
+      const getText = formatWillhabenTradeCards(result.get);
+
+      return [
+        `Ich gebe dir: ${giveText}`,
+        "",
+        `Ich bekomme von dir: ${getText}`,
+        "",
+        "Passt das für dich?"
+      ].join("\n");
+    }
+
+    function copyWillhabenTradeText() {
+      const txt = buildWillhabenTradeText();
+      if (!txt) return;
+
+      navigator.clipboard?.writeText(txt).then(() => {
+        showMessage("tradeMessage", "Tauschtext wurde kopiert.", "ok");
+      }).catch(() => {
+        const temp = document.createElement("textarea");
+        temp.value = txt;
+        document.body.appendChild(temp);
+        temp.select();
+        try { document.execCommand("copy"); } catch (error) {}
+        document.body.removeChild(temp);
+        showMessage("tradeMessage", "Tauschtext wurde zum Kopieren vorbereitet.", "info");
+      });
     }
 
     function buildTradeText() {
@@ -4581,6 +4740,7 @@ oder exakt: Florian Wirtz"></textarea>
       renderCatalog();
       renderWishlist();
       renderHistory();
+      scheduleStickyTableHeadersAfterLoad();
     }
 
     async function openBackupFile() {
@@ -4665,6 +4825,97 @@ oder exakt: Florian Wirtz"></textarea>
       if (wishlistFilter) wishlistFilter.innerHTML = options;
     }
 
+    function getMainTableInWrap(wrap) {
+      return Array.from(wrap.children).find(child =>
+        child.tagName === "TABLE" && !child.classList.contains("sticky-header-clone")
+      );
+    }
+
+    function updateStickyHeaderClone(wrap) {
+      const table = getMainTableInWrap(wrap);
+      const clone = wrap.querySelector(":scope > .sticky-header-clone");
+      if (!table || !clone || !table.tHead || !clone.tHead) return;
+
+      const originalThs = table.tHead.querySelectorAll("th");
+      const cloneThs = clone.tHead.querySelectorAll("th");
+
+      clone.style.width = table.offsetWidth + "px";
+      clone.style.minWidth = table.offsetWidth + "px";
+      clone.style.transform = `translateX(${-wrap.scrollLeft}px)`;
+
+      cloneThs.forEach((th, index) => {
+        const original = originalThs[index];
+        if (!original) return;
+        const width = original.getBoundingClientRect().width;
+        th.style.width = width + "px";
+        th.style.minWidth = width + "px";
+        th.style.maxWidth = width + "px";
+      });
+
+      const height = clone.getBoundingClientRect().height;
+      if (height > 0) clone.style.marginBottom = `-${height}px`;
+    }
+
+    function isVisibleTableWrap(wrap) {
+      if (!wrap) return false;
+      const rect = wrap.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    }
+
+    function stickyHeaderSignature(table) {
+      if (!table || !table.tHead) return "";
+      return Array.from(table.tHead.querySelectorAll("th")).map(th => th.textContent.trim()).join("|");
+    }
+
+    function syncStickyTableHeaders() {
+      document.querySelectorAll(".table-wrap").forEach(wrap => {
+        if (!isVisibleTableWrap(wrap)) return;
+
+        const table = getMainTableInWrap(wrap);
+        if (!table || !table.tHead) return;
+
+        const signature = stickyHeaderSignature(table);
+        let clone = wrap.querySelector(":scope > .sticky-header-clone");
+
+        if (!clone) {
+          clone = document.createElement("table");
+          clone.className = "sticky-header-clone";
+          clone.setAttribute("aria-hidden", "true");
+          clone.dataset.signature = signature;
+          clone.appendChild(table.tHead.cloneNode(true));
+          wrap.insertBefore(clone, table);
+        } else if (clone.dataset.signature !== signature) {
+          clone.innerHTML = "";
+          clone.dataset.signature = signature;
+          clone.appendChild(table.tHead.cloneNode(true));
+        }
+
+        if (!wrap.dataset.stickyHeaderReady) {
+          wrap.dataset.stickyHeaderReady = "1";
+          wrap.addEventListener("scroll", () => updateStickyHeaderClone(wrap), { passive: true });
+        }
+
+        updateStickyHeaderClone(wrap);
+      });
+    }
+
+    function scheduleStickyTableHeaders() {
+      if (window.__stickyHeaderRAF) cancelAnimationFrame(window.__stickyHeaderRAF);
+      window.__stickyHeaderRAF = requestAnimationFrame(syncStickyTableHeaders);
+    }
+
+    function scheduleStickyTableHeadersAfterLoad() {
+      // Beim ersten Öffnen ist die Alle-Tabelle manchmal noch nicht fertig ausgemessen.
+      // Deshalb mehrere kurze Nachläufe, ohne Design/Farben zu ändern.
+      scheduleStickyTableHeaders();
+      setTimeout(scheduleStickyTableHeaders, 60);
+      setTimeout(scheduleStickyTableHeaders, 250);
+      setTimeout(scheduleStickyTableHeaders, 800);
+    }
+
+    window.addEventListener("resize", scheduleStickyTableHeaders);
+    window.addEventListener("load", scheduleStickyTableHeadersAfterLoad);
+
     function init() {
       loadPrices();
       loadDatabase();
@@ -4676,6 +4927,7 @@ oder exakt: Florian Wirtz"></textarea>
       renderCatalog();
       renderWishlist();
       renderHistory();
+      scheduleStickyTableHeadersAfterLoad();
     }
 
     init();
