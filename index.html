@@ -1542,6 +1542,364 @@
       display: none !important;
     }
 
+  
+    /* V69: runder X-Button in Filter-Textfeldern */
+    .filter-clear-wrap {
+      position: relative;
+      min-width: 0;
+      width: 100%;
+    }
+    .filter-clear-wrap input {
+      padding-right: 42px !important;
+    }
+    .filter-clear-btn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      min-height: 26px;
+      padding: 0;
+      border-radius: 999px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      line-height: 1;
+      background: rgba(148,163,184,.22);
+      color: var(--text);
+      border: 1px solid rgba(148,163,184,.35);
+      z-index: 2;
+    }
+    .filter-clear-wrap.has-value .filter-clear-btn {
+      display: inline-flex;
+    }
+
+    /* V71: nur X-Button statisch halten, keine Tabellenformat-Overrides */
+    .filter-clear-btn:hover,
+    .filter-clear-btn:active,
+    .filter-clear-btn:focus {
+      transform: translateY(-50%) !important;
+    }
+    .filter-clear-btn:active {
+      opacity: .9;
+    }
+
+
+  
+    /* V73: Backup aus Auswertung raus, oben als Popup-Button */
+    .metric-backup-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
+    .metric-backup-row #metricSaved {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .backup-icon-btn {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      min-height: 42px;
+      padding: 0;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      background: rgba(56,189,248,.18);
+      color: #bae6fd;
+      border: 1px solid rgba(56,189,248,.38);
+    }
+    .backup-icon-btn:active,
+    .backup-popup-close:active {
+      transform: none !important;
+    }
+    .backup-popup-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(2,6,23,.72);
+      backdrop-filter: blur(5px);
+    }
+    .backup-popup-overlay.show {
+      display: flex;
+    }
+    .backup-popup-modal {
+      width: min(900px, calc(100vw - 28px));
+      max-height: min(86vh, 760px);
+      overflow: auto;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.58);
+      padding: 18px;
+    }
+    .backup-popup-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .backup-popup-head h2 {
+      margin: 0;
+    }
+    .backup-popup-close {
+      width: 36px;
+      height: 36px;
+      min-height: 36px;
+      padding: 0;
+      border-radius: 999px;
+      background: rgba(148,163,184,.18);
+      color: var(--text);
+      border: 1px solid rgba(148,163,184,.35);
+      font-size: 22px;
+      line-height: 1;
+    }
+    .backup-popup-status {
+      display: grid;
+      gap: 6px;
+      margin: 12px 0 16px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,.22);
+      background: rgba(2,6,23,.45);
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+    .backup-popup-status strong {
+      color: var(--text);
+    }
+
+    /* V75: übersichtlichere Backup-Änderungen */
+    .backup-changes-panel {
+      margin: 12px 0 16px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(56,189,248,.30);
+      background: rgba(2,6,23,.52);
+      color: var(--text);
+      max-height: 420px;
+      overflow: auto;
+    }
+    .backup-changes-panel h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+    .backup-changes-panel h4 {
+      margin: 16px 0 9px;
+      font-size: 14px;
+      color: #bae6fd;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .backup-changes-panel h4:first-of-type {
+      margin-top: 0;
+    }
+    .backup-change-empty {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .backup-change-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .backup-change-row,
+    .backup-trade-card,
+    .backup-current-card {
+      border: 1px solid rgba(148,163,184,.18);
+      border-radius: 14px;
+      background: rgba(15,23,42,.58);
+      padding: 10px;
+    }
+    .backup-change-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 9px;
+      align-items: center;
+    }
+    .backup-card-main {
+      min-width: 0;
+      line-height: 1.35;
+    }
+    .backup-card-main strong {
+      color: var(--text);
+    }
+    .backup-card-meta {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .backup-count-change {
+      white-space: nowrap;
+      font-weight: 950;
+      color: var(--text);
+    }
+    .backup-change-type {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .action-add,
+    .action-new,
+    .action-increase {
+      background: rgba(34,197,94,.16);
+      border-color: rgba(34,197,94,.42);
+      color: #bbf7d0;
+    }
+    .action-remove,
+    .action-delete {
+      background: rgba(239,68,68,.15);
+      border-color: rgba(239,68,68,.42);
+      color: #fecaca;
+    }
+    .action-reduce {
+      background: rgba(245,158,11,.16);
+      border-color: rgba(245,158,11,.42);
+      color: #fde68a;
+    }
+    .action-edit,
+    .action-price {
+      background: rgba(59,130,246,.16);
+      border-color: rgba(59,130,246,.42);
+      color: #bfdbfe;
+    }
+    .action-complete {
+      background: rgba(20,184,166,.16);
+      border-color: rgba(20,184,166,.42);
+      color: #99f6e4;
+    }
+    .action-reserved {
+      background: rgba(251,146,60,.17);
+      border-color: rgba(251,146,60,.45);
+      color: #fed7aa;
+    }
+    .action-expected {
+      background: rgba(45,212,191,.15);
+      border-color: rgba(45,212,191,.45);
+      color: #99f6e4;
+    }
+    .backup-trade-list {
+      display: grid;
+      gap: 10px;
+    }
+    .backup-trade-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .backup-trade-title {
+      font-weight: 950;
+      color: var(--text);
+    }
+    .backup-trade-sub {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .backup-trade-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .backup-trade-side {
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,.15);
+      background: rgba(2,6,23,.35);
+      padding: 8px;
+      min-width: 0;
+    }
+    .backup-trade-side-title {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 5px;
+    }
+    .backup-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .backup-card-chip {
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(148,163,184,.13);
+      color: #e5e7eb;
+      border: 1px solid rgba(148,163,184,.20);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+    .backup-card-chip b {
+      color: var(--text);
+    }
+    .backup-detail-grid {
+      display: grid;
+      gap: 5px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148,163,184,.16);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .backup-detail-grid strong {
+      color: #e5e7eb;
+    }
+    .backup-current-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .backup-current-card h5 {
+      margin: 0 0 7px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    @media (max-width: 680px) {
+      .backup-trade-columns,
+      .backup-current-grid {
+        grid-template-columns: 1fr;
+      }
+      .backup-change-row {
+        grid-template-columns: 1fr;
+      }
+      .backup-count-change {
+        white-space: normal;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -1561,7 +1919,13 @@
       <div class="metric"><div class="label">Wert deiner doppelten Karten</div><div class="value green" id="metricValue">0,00 €</div></div>
       <div class="metric"><div class="label">Doppelte Karten gesamt</div><div class="value" id="metricTotal">0</div></div>
       <div class="metric"><div class="label">Gesuchte Karten gesamt</div><div class="value blue" id="metricWishlist">0</div></div>
-      <div class="metric"><div class="label">Zuletzt gespeichert</div><div class="value orange" id="metricSaved" style="font-size:18px;">Noch nicht</div></div>
+      <div class="metric metric-backup">
+        <div class="label">Zuletzt gespeichert</div>
+        <div class="metric-backup-row">
+          <div class="value orange" id="metricSaved" style="font-size:18px;">Noch nicht</div>
+          <button type="button" class="backup-icon-btn" onclick="openBackupPopup()" title="Backup öffnen" aria-label="Backup öffnen">💾</button>
+        </div>
+      </div>
     </div>
 
 
@@ -1598,7 +1962,7 @@
             <label for="addInput">Doppelte Karten eingeben</label>
             <textarea id="addInput" class="textarea-small" placeholder="Beispiele:
 1 7 10 514
-LE001, LE090, PLE001
+LE001, DFBLE001, PLE001, PGLE001
 oder exakt: Florian Wirtz"></textarea>
             <div class="button-row">
               <button onclick="addCards()">Hinzufügen</button>
@@ -1627,7 +1991,7 @@ oder exakt: Florian Wirtz"></textarea>
             <label for="wishlistInput">Gesuchte Karten eingeben</label>
             <textarea id="wishlistInput" class="textarea-small" placeholder="Beispiele:
 24, 624, 628
-LE001, PLE001
+LE001, DFBLE001, PLE001, PGLE001
 oder exakt: Florian Wirtz"></textarea>
             <div class="button-row">
               <button onclick="addWishlistCards()">Hinzufügen</button>
@@ -1658,8 +2022,8 @@ oder exakt: Florian Wirtz"></textarea>
           <div id="list-check" class="tab-content">
             <h2>Karten prüfen</h2>
             <label for="checkInput">Welche Nummern, Codes oder Namen willst du prüfen?</label>
-            <textarea id="checkInput" class="textarea-small" placeholder="Beispiel:
-1, 7, LE001, PLE001
+            <textarea id="checkInput" class="textarea-small" oninput="handleCheckInputChange()" placeholder="Beispiel:
+1, 7, LE001, DFBLE001, PLE001, PGLE001
 oder
 Messi, Florian Wirtz, Lamine Yamal"></textarea>
             <div class="button-row check-actions">
@@ -1710,7 +2074,6 @@ Messi, Florian Wirtz, Lamine Yamal"></textarea>
           <div class="tabs">
             <button class="active" onclick="showSideTab('category', this)">Wert nach Kategorie</button>
             <button onclick="showSideTab('prices', this)">Preise</button>
-            <button onclick="showSideTab('backup', this)">Backup</button>
           </div>
 
           <div id="side-category" class="tab-content active">
@@ -1729,37 +2092,6 @@ Messi, Florian Wirtz, Lamine Yamal"></textarea>
               <button class="secondary" onclick="resetPrices()">Standardpreise</button>
             </div>
             <div id="priceMessage" class="message"></div>
-          </div>
-
-          <div id="side-backup" class="tab-content">
-            <div class="split backup-actions">
-              <div>
-                <h3>Backup speichern</h3>
-                <div class="hint">Speichert deine Listen, Preise und gespeicherten Tausche als JSON-Datei.</div>
-                <div class="button-row">
-                  <button class="blue backup-btn" onclick="exportDatabase()">Backup speichern</button>
-                </div>
-              </div>
-              <div>
-                <h3>Backup laden</h3>
-                <div class="hint">Lädt eine vorhandene Backup-Datei und übernimmt die gespeicherten Daten.</div>
-                <input type="file" id="importFile" accept=".json,application/json" onchange="importDatabase()" style="display:none;" />
-                <div class="button-row">
-                  <button class="blue backup-btn" onclick="openBackupFile()">Backup laden</button>
-                </div>
-              </div>
-            </div>
-            <div id="backupMessage" class="message"></div>
-
-            <div class="danger-zone" style="margin-top:18px; padding:14px; border-radius:16px; border:1px solid rgba(239,68,68,.45);">
-              <h3>Listen zurücksetzen</h3>
-              <div class="hint">Du kannst deine ursprünglichen doppelten Karten laden oder alle Listen komplett leeren.</div>
-              <div class="button-row">
-                <button class="warn" onclick="restoreInitial()">Ursprüngliche doppelte Karten laden</button>
-                <button class="danger" onclick="clearDatabase()">Alles leeren</button>
-              </div>
-              <div id="resetMessage" class="message"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -1796,7 +2128,7 @@ Messi, Florian Wirtz, Lamine Yamal"></textarea>
       <div class="mini-grid" style="margin-top:14px;">
         <div>
           <label for="tradeGiveInput">Ich gebe</label>
-          <textarea id="tradeGiveInput" class="textarea-small" placeholder="Beispiel:
+          <textarea id="tradeGiveInput" class="textarea-small" oninput="handleTradeInputChange()" placeholder="Beispiel:
 10, 514, LE001
 oder
 10 (x2), PLE001"></textarea>
@@ -1805,8 +2137,8 @@ oder
         </div>
         <div>
           <label for="tradeGetInput">Ich bekomme</label>
-          <textarea id="tradeGetInput" class="textarea-small" placeholder="Beispiel:
-24, 624, LE090
+          <textarea id="tradeGetInput" class="textarea-small" oninput="handleTradeInputChange()" placeholder="Beispiel:
+24, 624, DFBLE010
 oder exakt: Florian Wirtz"></textarea>
           <div class="hint">Beim Bestätigen werden gesuchte und doppelte Karten aktualisiert.</div>
           <div id="tradeGetSuggestions" class="suggestion-box compact"></div>
@@ -1872,8 +2204,52 @@ oder exakt: Florian Wirtz"></textarea>
     </div>
   </div>
 
+  <div id="backupPopupOverlay" class="backup-popup-overlay" onclick="closeBackupPopup(event)">
+    <div class="backup-popup-modal" onclick="event.stopPropagation()">
+      <div class="backup-popup-head">
+        <div>
+          <h2>Backup</h2>
+          <div class="hint">Sichere oder lade deine Listen, Preise und gespeicherten Tausche.</div>
+        </div>
+        <button type="button" class="backup-popup-close" onclick="closeBackupPopup()">×</button>
+      </div>
+
+      <div id="backupPopupStatus" class="backup-popup-status"></div>
+      <div id="backupChangesPanel" class="backup-changes-panel"></div>
+
+      <div class="split backup-actions">
+        <div>
+          <h3>Backup speichern</h3>
+          <div class="hint">Speichert deine Listen, Preise und gespeicherten Tausche als JSON-Datei.</div>
+          <div class="button-row">
+            <button class="blue backup-btn" onclick="exportDatabase()">Backup speichern</button>
+          </div>
+        </div>
+        <div>
+          <h3>Backup laden</h3>
+          <div class="hint">Lädt eine vorhandene Backup-Datei und übernimmt die gespeicherten Daten.</div>
+          <input type="file" id="importFile" accept=".json,application/json" onchange="importDatabase()" style="display:none;" />
+          <div class="button-row">
+            <button class="blue backup-btn" onclick="openBackupFile()">Backup laden</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="backupMessage" class="message"></div>
+
+      <div class="danger-zone" style="margin-top:18px; padding:14px; border-radius:16px; border:1px solid rgba(239,68,68,.45);">
+        <h3>Listen zurücksetzen</h3>
+        <div class="hint">Hier kannst du alle gespeicherten Karten, Gesucht und die Tauschhistorie komplett leeren.</div>
+        <div class="button-row">
+          <button class="danger" onclick="clearDatabase()">Alles leeren</button>
+        </div>
+        <div id="resetMessage" class="message"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="footer">
-      Version: V67 · GitHub Pages: diese Datei als <strong>index.html</strong> hochladen · Speicherung läuft lokal im Browser. Wenn du Browserdaten löschst, können doppelte Karten, gesuchte Karten und die Tauschhistorie weg sein. Deshalb regelmäßig Backup exportieren.
+      Version: V80 · GitHub Pages: diese Datei als <strong>index.html</strong> hochladen · Speicherung läuft lokal im Browser. Wenn du Browserdaten löschst, können doppelte Karten, gesuchte Karten und die Tauschhistorie weg sein. Deshalb regelmäßig Backup exportieren.
     </div>
   </div>
 
@@ -1887,11 +2263,99 @@ oder exakt: Florian Wirtz"></textarea>
     const BACKUP_STATE_KEY = "panini_adrenalyn_backup_state_v1";
     const INITIAL_RAW = `1 (x2), 7 (x1), 10 (x1), 13 (x1), 17 (x1), 31 (x1), 32 (x1), 36 (x1), 39 (x1), 40 (x2), 41 (x1), 43 (x1), 44 (x2), 49 (x2), 51 (x1), 52 (x1), 56 (x2), 57 (x1), 59 (x1), 61 (x1), 63 (x1), 65 (x1), 66 (x2), 76 (x1), 77 (x1), 83 (x1), 86 (x1), 89 (x3), 93 (x1), 94 (x1), 96 (x1), 97 (x3), 99 (x2), 102 (x1), 105 (x1), 110 (x1), 111 (x1), 114 (x2), 115 (x1), 119 (x1), 121 (x1), 122 (x1), 124 (x2), 128 (x4), 131 (x1), 132 (x1), 135 (x1), 136 (x2), 137 (x1), 139 (x1), 145 (x2), 149 (x2), 151 (x1), 152 (x2), 154 (x1), 157 (x2), 160 (x2), 161 (x3), 167 (x1), 170 (x2), 171 (x2), 173 (x1), 176 (x4), 179 (x1), 180 (x1), 184 (x1), 185 (x1), 186 (x1), 187 (x2), 194 (x2), 196 (x1), 207 (x4), 208 (x1), 209 (x4), 211 (x1), 212 (x1), 214 (x1), 216 (x1), 218 (x1), 224 (x1), 225 (x1), 226 (x1), 232 (x1), 233 (x1), 234 (x1), 235 (x2), 236 (x2), 238 (x2), 242 (x4), 244 (x2), 245 (x2), 246 (x1), 250 (x1), 253 (x1), 254 (x1), 256 (x1), 264 (x1), 267 (x1), 269 (x1), 271 (x4), 275 (x3), 277 (x1), 278 (x2), 280 (x1), 281 (x1), 285 (x2), 286 (x1), 287 (x1), 289 (x1), 291 (x2), 292 (x1), 293 (x4), 294 (x1), 297 (x1), 302 (x1), 303 (x1), 306 (x1), 307 (x2), 315 (x1), 316 (x1), 320 (x1), 321 (x3), 323 (x1), 324 (x1), 326 (x1), 328 (x2), 331 (x1), 335 (x1), 338 (x1), 339 (x3), 342 (x2), 345 (x2), 346 (x1), 349 (x2), 353 (x1), 354 (x1), 358 (x1), 360 (x1), 365 (x1), 368 (x1), 369 (x1), 371 (x1), 374 (x3), 375 (x1), 376 (x3), 377 (x1), 380 (x1), 383 (x2), 385 (x4), 390 (x1), 391 (x1), 393 (x1), 394 (x1), 401 (x1), 406 (x1), 411 (x1), 412 (x4), 413 (x1), 414 (x2), 415 (x3), 417 (x1), 418 (x1), 420 (x1), 422 (x3), 425 (x1), 426 (x2), 427 (x2), 428 (x1), 436 (x1), 441 (x1), 445 (x1), 450 (x1), 452 (x1), 453 (x1), 457 (x1), 458 (x1), 459 (x1), 465 (x3), 469 (x2), 471 (x3), 473 (x1), 474 (x2), 477 (x1), 481 (x1), 484 (x1), 487 (x2), 488 (x1), 494 (x1), 495 (x1), 496 (x1), 498 (x1), 502 (x1), 503 (x1), 505 (x1), 506 (x3), 508 (x1), 509 (x1), 511 (x4), 513 (x1), 514 (x1), 515 (x1), 516 (x2), 517 (x2), 519 (x1), 520 (x1), 521 (x1), 524 (x1), 529 (x1), 531 (x1), 535 (x1), 538 (x1), 540 (x1), 542 (x1), 547 (x1), 549 (x1), 557 (x1), 558 (x1), 559 (x1), 567 (x1), 568 (x1), 576 (x1), 579 (x1), 585 (x1), 594 (x3), 595 (x1), 603 (x2), 605 (x1), 606 (x1), 622 (x1), 625 (x3)`;
     const CHECKLIST = [{"number": 1, "name": "Lionel Messi", "team": "Argentina", "category": "Golden Baller"}, {"number": 2, "name": "Vinícius Júnior", "team": "Brazil", "category": "Golden Baller"}, {"number": 3, "name": "Mohamed Salah", "team": "Egypt", "category": "Golden Baller"}, {"number": 4, "name": "Harry Kane", "team": "England", "category": "Golden Baller"}, {"number": 5, "name": "Kylian Mbappé", "team": "France", "category": "Golden Baller"}, {"number": 6, "name": "Son Heung-Min", "team": "Korea Republic", "category": "Golden Baller"}, {"number": 7, "name": "Erling Haaland", "team": "Norway", "category": "Golden Baller"}, {"number": 8, "name": "Cristiano Ronaldo", "team": "Portugal", "category": "Golden Baller"}, {"number": 9, "name": "Lamine Yamal", "team": "Spain", "category": "Golden Baller"}, {"number": 10, "name": "Rayan Aït-Nouri", "team": "Algeria", "category": "Fan Favourite"}, {"number": 11, "name": "Team Crest (Algeria)", "team": "Algeria", "category": "Teamwappen"}, {"number": 12, "name": "Riyad Mahrez", "team": "Algeria", "category": "Icon"}, {"number": 13, "name": "Alexis Guendouz", "team": "Algeria", "category": "Hero/Base"}, {"number": 14, "name": "Ramy Bensebaini", "team": "Algeria", "category": "Hero/Base"}, {"number": 15, "name": "Yousef Atal", "team": "Algeria", "category": "Hero/Base"}, {"number": 16, "name": "Aissa Mandi", "team": "Algeria", "category": "Hero/Base"}, {"number": 17, "name": "Nabil Bentaleb", "team": "Algeria", "category": "Hero/Base"}, {"number": 18, "name": "Said Benrahma", "team": "Algeria", "category": "Hero/Base"}, {"number": 19, "name": "Amine Gouiri", "team": "Algeria", "category": "Hero/Base"}, {"number": 20, "name": "Mohamed Amoura", "team": "Algeria", "category": "Hero/Base"}, {"number": 21, "name": "Baghdad Bounedjah", "team": "Algeria", "category": "Hero/Base"}, {"number": 22, "name": "Julián Álvarez", "team": "Argentina", "category": "Fan Favourite"}, {"number": 23, "name": "Team Crest (Argentina)", "team": "Argentina", "category": "Teamwappen"}, {"number": 24, "name": "Lionel Messi", "team": "Argentina", "category": "Icon"}, {"number": 25, "name": "Emiliano Martínez", "team": "Argentina", "category": "Hero/Base"}, {"number": 26, "name": "Nahuel Molina", "team": "Argentina", "category": "Hero/Base"}, {"number": 27, "name": "Cristian Romero", "team": "Argentina", "category": "Hero/Base"}, {"number": 28, "name": "Nicolás Otamendi", "team": "Argentina", "category": "Hero/Base"}, {"number": 29, "name": "Enzo Fernández", "team": "Argentina", "category": "Hero/Base"}, {"number": 30, "name": "Alexis Mac Allister", "team": "Argentina", "category": "Hero/Base"}, {"number": 31, "name": "Rodrigo De Paul", "team": "Argentina", "category": "Hero/Base"}, {"number": 32, "name": "Giuliano Simeone", "team": "Argentina", "category": "Hero/Base"}, {"number": 33, "name": "Lautaro Martínez", "team": "Argentina", "category": "Hero/Base"}, {"number": 34, "name": "Harry Souttar", "team": "Australia", "category": "Fan Favourite"}, {"number": 35, "name": "Team Crest (Australia)", "team": "Australia", "category": "Teamwappen"}, {"number": 36, "name": "Mathew Ryan", "team": "Australia", "category": "Icon"}, {"number": 37, "name": "Alessandro Circati", "team": "Australia", "category": "Hero/Base"}, {"number": 38, "name": "Jordan Bos", "team": "Australia", "category": "Hero/Base"}, {"number": 39, "name": "Lewis Miller", "team": "Australia", "category": "Hero/Base"}, {"number": 40, "name": "Milos Degenek", "team": "Australia", "category": "Hero/Base"}, {"number": 41, "name": "Jackson Irvine", "team": "Australia", "category": "Hero/Base"}, {"number": 42, "name": "Riley McGree", "team": "Australia", "category": "Hero/Base"}, {"number": 43, "name": "Aiden O'Neill", "team": "Australia", "category": "Hero/Base"}, {"number": 44, "name": "Connor Metcalfe", "team": "Australia", "category": "Hero/Base"}, {"number": 45, "name": "Craig Goodwin", "team": "Australia", "category": "Hero/Base"}, {"number": 46, "name": "Marko Arnautovic", "team": "Austria", "category": "Fan Favourite"}, {"number": 47, "name": "Team Crest (Austria)", "team": "Austria", "category": "Teamwappen"}, {"number": 48, "name": "David Alaba", "team": "Austria", "category": "Icon"}, {"number": 49, "name": "Alexander Schlager", "team": "Austria", "category": "Hero/Base"}, {"number": 50, "name": "Kevin Danso", "team": "Austria", "category": "Hero/Base"}, {"number": 51, "name": "Philipp Lienhart", "team": "Austria", "category": "Hero/Base"}, {"number": 52, "name": "Konrad Laimer", "team": "Austria", "category": "Hero/Base"}, {"number": 53, "name": "Nicolas Seiwald", "team": "Austria", "category": "Hero/Base"}, {"number": 54, "name": "Marcel Sabitzer", "team": "Austria", "category": "Hero/Base"}, {"number": 55, "name": "Florian Grillitsch", "team": "Austria", "category": "Hero/Base"}, {"number": 56, "name": "Christoph Baumgartner", "team": "Austria", "category": "Hero/Base"}, {"number": 57, "name": "Michael Gregoritsch", "team": "Austria", "category": "Hero/Base"}, {"number": 58, "name": "Youri Tielemans", "team": "Belgium", "category": "Fan Favourite"}, {"number": 59, "name": "Team Crest (Belgium)", "team": "Belgium", "category": "Teamwappen"}, {"number": 60, "name": "Kevin De Bruyne", "team": "Belgium", "category": "Icon"}, {"number": 61, "name": "Thibaut Courtois", "team": "Belgium", "category": "Hero/Base"}, {"number": 62, "name": "Arthur Theate", "team": "Belgium", "category": "Hero/Base"}, {"number": 63, "name": "Timothy Castagne", "team": "Belgium", "category": "Hero/Base"}, {"number": 64, "name": "Maxim De Cuyper", "team": "Belgium", "category": "Hero/Base"}, {"number": 65, "name": "Amadou Onana", "team": "Belgium", "category": "Hero/Base"}, {"number": 66, "name": "Jérémy Doku", "team": "Belgium", "category": "Hero/Base"}, {"number": 67, "name": "Charles De Ketelaere", "team": "Belgium", "category": "Hero/Base"}, {"number": 68, "name": "Leandro Trossard", "team": "Belgium", "category": "Hero/Base"}, {"number": 69, "name": "Romelu Lukaku", "team": "Belgium", "category": "Hero/Base"}, {"number": 70, "name": "Marquinhos", "team": "Brazil", "category": "Fan Favourite"}, {"number": 71, "name": "Team Crest (Brazil)", "team": "Brazil", "category": "Teamwappen"}, {"number": 72, "name": "Vinícius Júnior", "team": "Brazil", "category": "Icon"}, {"number": 73, "name": "Alisson", "team": "Brazil", "category": "Hero/Base"}, {"number": 74, "name": "Danilo", "team": "Brazil", "category": "Hero/Base"}, {"number": 75, "name": "Éder Militão", "team": "Brazil", "category": "Hero/Base"}, {"number": 76, "name": "Gabriel Magalhães", "team": "Brazil", "category": "Hero/Base"}, {"number": 77, "name": "Casemiro", "team": "Brazil", "category": "Hero/Base"}, {"number": 78, "name": "Bruno Guimarães", "team": "Brazil", "category": "Hero/Base"}, {"number": 79, "name": "Rodrygo", "team": "Brazil", "category": "Hero/Base"}, {"number": 80, "name": "Matheus Cunha", "team": "Brazil", "category": "Hero/Base"}, {"number": 81, "name": "Raphinha", "team": "Brazil", "category": "Hero/Base"}, {"number": 82, "name": "Jonathan David", "team": "Canada", "category": "Fan Favourite"}, {"number": 83, "name": "Team Crest (Canada)", "team": "Canada", "category": "Teamwappen"}, {"number": 84, "name": "Alphonso Davies", "team": "Canada", "category": "Icon"}, {"number": 85, "name": "Dayne St. Clair", "team": "Canada", "category": "Hero/Base"}, {"number": 86, "name": "Richie Laryea", "team": "Canada", "category": "Hero/Base"}, {"number": 87, "name": "Derek Cornelius", "team": "Canada", "category": "Hero/Base"}, {"number": 88, "name": "Stephen Eustaquio", "team": "Canada", "category": "Hero/Base"}, {"number": 89, "name": "Ismaël Koné", "team": "Canada", "category": "Hero/Base"}, {"number": 90, "name": "Jonathan Osorio", "team": "Canada", "category": "Hero/Base"}, {"number": 91, "name": "Jacob Shaffelburg", "team": "Canada", "category": "Hero/Base"}, {"number": 92, "name": "Tajon Buchanan", "team": "Canada", "category": "Hero/Base"}, {"number": 93, "name": "Cyle Larin", "team": "Canada", "category": "Hero/Base"}, {"number": 94, "name": "Vozinha", "team": "Cape Verde", "category": "Fan Favourite"}, {"number": 95, "name": "Team Crest (Cape Verde)", "team": "Cape Verde", "category": "Teamwappen"}, {"number": 96, "name": "Ryan Mendes", "team": "Cape Verde", "category": "Icon"}, {"number": 97, "name": "Logan Costa", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 98, "name": "Pico", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 99, "name": "Steven Moreira", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 100, "name": "Joao Paulo", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 101, "name": "Kevin Pina", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 102, "name": "Jamiro Monteiro", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 103, "name": "Yannick Semedo", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 104, "name": "Jovane Cabral", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 105, "name": "Dailon Livramento", "team": "Cape Verde", "category": "Hero/Base"}, {"number": 106, "name": "Luis Díaz", "team": "Colombia", "category": "Fan Favourite"}, {"number": 107, "name": "Team Crest (Colombia)", "team": "Colombia", "category": "Teamwappen"}, {"number": 108, "name": "James Rodríguez", "team": "Colombia", "category": "Icon"}, {"number": 109, "name": "Camilo Vargas", "team": "Colombia", "category": "Hero/Base"}, {"number": 110, "name": "Davinson Sanchez", "team": "Colombia", "category": "Hero/Base"}, {"number": 111, "name": "Yerry Mina", "team": "Colombia", "category": "Hero/Base"}, {"number": 112, "name": "Daniel Muñoz", "team": "Colombia", "category": "Hero/Base"}, {"number": 113, "name": "Jefferson Lerma", "team": "Colombia", "category": "Hero/Base"}, {"number": 114, "name": "Richard Ríos", "team": "Colombia", "category": "Hero/Base"}, {"number": 115, "name": "Juan Fernando Quintero", "team": "Colombia", "category": "Hero/Base"}, {"number": 116, "name": "Jhon Arias", "team": "Colombia", "category": "Hero/Base"}, {"number": 117, "name": "Luis Suárez", "team": "Colombia", "category": "Hero/Base"}, {"number": 118, "name": "Ivan Perišić", "team": "Croatia", "category": "Fan Favourite"}, {"number": 119, "name": "Team Crest (Croatia)", "team": "Croatia", "category": "Teamwappen"}, {"number": 120, "name": "Luka Modrić", "team": "Croatia", "category": "Icon"}, {"number": 121, "name": "Dominik Livaković", "team": "Croatia", "category": "Hero/Base"}, {"number": 122, "name": "Duje Ćaleta-Car", "team": "Croatia", "category": "Hero/Base"}, {"number": 123, "name": "Joško Gvardiol", "team": "Croatia", "category": "Hero/Base"}, {"number": 124, "name": "Josip Stanisic", "team": "Croatia", "category": "Hero/Base"}, {"number": 125, "name": "Mateo Kovačić", "team": "Croatia", "category": "Hero/Base"}, {"number": 126, "name": "Lovro Majer", "team": "Croatia", "category": "Hero/Base"}, {"number": 127, "name": "Mario Pašalić", "team": "Croatia", "category": "Hero/Base"}, {"number": 128, "name": "Ante Budimir", "team": "Croatia", "category": "Hero/Base"}, {"number": 129, "name": "Andrej Kramarić", "team": "Croatia", "category": "Hero/Base"}, {"number": 130, "name": "Jurien Gaari", "team": "Curaçao", "category": "Fan Favourite"}, {"number": 131, "name": "Team Crest (Curaçao)", "team": "Curaçao", "category": "Teamwappen"}, {"number": 132, "name": "Leandro Bacuna", "team": "Curaçao", "category": "Icon"}, {"number": 133, "name": "Eloy Room", "team": "Curaçao", "category": "Hero/Base"}, {"number": 134, "name": "Sherel Floranus", "team": "Curaçao", "category": "Hero/Base"}, {"number": 135, "name": "Roshon van Eijma", "team": "Curaçao", "category": "Hero/Base"}, {"number": 136, "name": "Armando Obispo", "team": "Curaçao", "category": "Hero/Base"}, {"number": 137, "name": "Livano Comenencia", "team": "Curaçao", "category": "Hero/Base"}, {"number": 138, "name": "Juninho Bacuna", "team": "Curaçao", "category": "Hero/Base"}, {"number": 139, "name": "Kenji Gorre", "team": "Curaçao", "category": "Hero/Base"}, {"number": 140, "name": "Sontje Hansen", "team": "Curaçao", "category": "Hero/Base"}, {"number": 141, "name": "Jearl Margaritha", "team": "Curaçao", "category": "Hero/Base"}, {"number": 142, "name": "Moisés Caicedo", "team": "Ecuador", "category": "Fan Favourite"}, {"number": 143, "name": "Team Crest (Ecuador)", "team": "Ecuador", "category": "Teamwappen"}, {"number": 144, "name": "Enner Valencia", "team": "Ecuador", "category": "Icon"}, {"number": 145, "name": "Hernán Galíndez", "team": "Ecuador", "category": "Hero/Base"}, {"number": 146, "name": "Piero Hincapié", "team": "Ecuador", "category": "Hero/Base"}, {"number": 147, "name": "Pervis Estupiñán", "team": "Ecuador", "category": "Hero/Base"}, {"number": 148, "name": "Willian Pacho", "team": "Ecuador", "category": "Hero/Base"}, {"number": 149, "name": "Ángelo Preciado", "team": "Ecuador", "category": "Hero/Base"}, {"number": 150, "name": "Joel Ordonez", "team": "Ecuador", "category": "Hero/Base"}, {"number": 151, "name": "Alan Franco", "team": "Ecuador", "category": "Hero/Base"}, {"number": 152, "name": "Gonzalo Plata", "team": "Ecuador", "category": "Hero/Base"}, {"number": 153, "name": "Kevin Rodriguez", "team": "Ecuador", "category": "Hero/Base"}, {"number": 154, "name": "Omar Marmoush", "team": "Egypt", "category": "Fan Favourite"}, {"number": 155, "name": "Team Crest (Egypt)", "team": "Egypt", "category": "Teamwappen"}, {"number": 156, "name": "Mohamed Salah", "team": "Egypt", "category": "Icon"}, {"number": 157, "name": "Mohamed El Shenawy", "team": "Egypt", "category": "Hero/Base"}, {"number": 158, "name": "Mohamed Hany", "team": "Egypt", "category": "Hero/Base"}, {"number": 159, "name": "Mohamed Abdelmonem", "team": "Egypt", "category": "Hero/Base"}, {"number": 160, "name": "Ramy Rabia", "team": "Egypt", "category": "Hero/Base"}, {"number": 161, "name": "Marwan Attia", "team": "Egypt", "category": "Hero/Base"}, {"number": 162, "name": "Zizo", "team": "Egypt", "category": "Hero/Base"}, {"number": 163, "name": "Hamdy Fathy", "team": "Egypt", "category": "Hero/Base"}, {"number": 164, "name": "Mostafa Mohamed", "team": "Egypt", "category": "Hero/Base"}, {"number": 165, "name": "Trezeguet", "team": "Egypt", "category": "Hero/Base"}, {"number": 166, "name": "Jude Bellingham", "team": "England", "category": "Fan Favourite"}, {"number": 167, "name": "Team Crest (England)", "team": "England", "category": "Teamwappen"}, {"number": 168, "name": "Harry Kane", "team": "England", "category": "Icon"}, {"number": 169, "name": "Jordan Pickford", "team": "England", "category": "Hero/Base"}, {"number": 170, "name": "Reece James", "team": "England", "category": "Hero/Base"}, {"number": 171, "name": "John Stones", "team": "England", "category": "Hero/Base"}, {"number": 172, "name": "Declan Rice", "team": "England", "category": "Hero/Base"}, {"number": 173, "name": "Jordan Henderson", "team": "England", "category": "Hero/Base"}, {"number": 174, "name": "Phil Foden", "team": "England", "category": "Hero/Base"}, {"number": 175, "name": "Bukayo Saka", "team": "England", "category": "Hero/Base"}, {"number": 176, "name": "Cole Palmer", "team": "England", "category": "Hero/Base"}, {"number": 177, "name": "Marcus Rashford", "team": "England", "category": "Hero/Base"}, {"number": 178, "name": "Ousmane Dembélé", "team": "France", "category": "Fan Favourite"}, {"number": 179, "name": "Team Crest (France)", "team": "France", "category": "Teamwappen"}, {"number": 180, "name": "Kylian Mbappé", "team": "France", "category": "Icon"}, {"number": 181, "name": "Mike Maignan", "team": "France", "category": "Hero/Base"}, {"number": 182, "name": "William Saliba", "team": "France", "category": "Hero/Base"}, {"number": 183, "name": "Jules Koundé", "team": "France", "category": "Hero/Base"}, {"number": 184, "name": "Theo Hernández", "team": "France", "category": "Hero/Base"}, {"number": 185, "name": "Aurélien Tchouaméni", "team": "France", "category": "Hero/Base"}, {"number": 186, "name": "Eduardo Camavinga", "team": "France", "category": "Hero/Base"}, {"number": 187, "name": "Bradley Barcola", "team": "France", "category": "Hero/Base"}, {"number": 188, "name": "Marcus Thuram", "team": "France", "category": "Hero/Base"}, {"number": 189, "name": "Randal Kolo Muani", "team": "France", "category": "Hero/Base"}, {"number": 190, "name": "Jamal Musiala", "team": "Germany", "category": "Fan Favourite"}, {"number": 191, "name": "Team Crest (Germany)", "team": "Germany", "category": "Teamwappen"}, {"number": 192, "name": "Joshua Kimmich", "team": "Germany", "category": "Icon"}, {"number": 193, "name": "Marc-André ter Stegen", "team": "Germany", "category": "Hero/Base"}, {"number": 194, "name": "Antonio Rüdiger", "team": "Germany", "category": "Hero/Base"}, {"number": 195, "name": "Jonathan Tah", "team": "Germany", "category": "Hero/Base"}, {"number": 196, "name": "Felix Nmecha", "team": "Germany", "category": "Hero/Base"}, {"number": 197, "name": "Leon Goretzka", "team": "Germany", "category": "Hero/Base"}, {"number": 198, "name": "Florian Wirtz", "team": "Germany", "category": "Hero/Base"}, {"number": 199, "name": "Serge Gnabry", "team": "Germany", "category": "Hero/Base"}, {"number": 200, "name": "Kai Havertz", "team": "Germany", "category": "Hero/Base"}, {"number": 201, "name": "Leroy Sané", "team": "Germany", "category": "Hero/Base"}, {"number": 202, "name": "Thomas Partey", "team": "Ghana", "category": "Fan Favourite"}, {"number": 203, "name": "Team Crest (Ghana)", "team": "Ghana", "category": "Teamwappen"}, {"number": 204, "name": "Mohammed Kudus", "team": "Ghana", "category": "Icon"}, {"number": 205, "name": "Lawrence Ati-Zigi", "team": "Ghana", "category": "Hero/Base"}, {"number": 206, "name": "Alidu Seidu", "team": "Ghana", "category": "Hero/Base"}, {"number": 207, "name": "Alexander Djiku", "team": "Ghana", "category": "Hero/Base"}, {"number": 208, "name": "Gideon Mensah", "team": "Ghana", "category": "Hero/Base"}, {"number": 209, "name": "Caleb Yirenkyi", "team": "Ghana", "category": "Hero/Base"}, {"number": 210, "name": "Abdul Fatawu Issahaku", "team": "Ghana", "category": "Hero/Base"}, {"number": 211, "name": "Kamaldeen Sulemana", "team": "Ghana", "category": "Hero/Base"}, {"number": 212, "name": "Jordan Ayew", "team": "Ghana", "category": "Hero/Base"}, {"number": 213, "name": "Antoine Semenyo", "team": "Ghana", "category": "Hero/Base"}, {"number": 214, "name": "Frantzdy Pierrot", "team": "Haiti", "category": "Fan Favourite"}, {"number": 215, "name": "Team Crest (Haiti)", "team": "Haiti", "category": "Teamwappen"}, {"number": 216, "name": "Duckens Nazon", "team": "Haiti", "category": "Icon"}, {"number": 217, "name": "Johny Placide", "team": "Haiti", "category": "Hero/Base"}, {"number": 218, "name": "Ricardo Ade", "team": "Haiti", "category": "Hero/Base"}, {"number": 219, "name": "Carlens Arcus", "team": "Haiti", "category": "Hero/Base"}, {"number": 220, "name": "Hannes Delcroix", "team": "Haiti", "category": "Hero/Base"}, {"number": 221, "name": "Leverton Pierre", "team": "Haiti", "category": "Hero/Base"}, {"number": 222, "name": "Danley Jean Jacques", "team": "Haiti", "category": "Hero/Base"}, {"number": 223, "name": "Jean-Ricner Bellegarde", "team": "Haiti", "category": "Hero/Base"}, {"number": 224, "name": "Ruben Providence", "team": "Haiti", "category": "Hero/Base"}, {"number": 225, "name": "Don Deedson Louicius", "team": "Haiti", "category": "Hero/Base"}, {"number": 226, "name": "Mehdi Taremi", "team": "Iran", "category": "Fan Favourite"}, {"number": 227, "name": "Team Crest (Iran)", "team": "Iran", "category": "Teamwappen"}, {"number": 228, "name": "Sardar Azmoun", "team": "Iran", "category": "Icon"}, {"number": 229, "name": "Alireza Beiranvand", "team": "Iran", "category": "Hero/Base"}, {"number": 230, "name": "Shoja Khalilzadeh", "team": "Iran", "category": "Hero/Base"}, {"number": 231, "name": "Milad Mohammadi", "team": "Iran", "category": "Hero/Base"}, {"number": 232, "name": "Ramin Rezaeian", "team": "Iran", "category": "Hero/Base"}, {"number": 233, "name": "Hossein Kanaani", "team": "Iran", "category": "Hero/Base"}, {"number": 234, "name": "Saeid Ezatolahi", "team": "Iran", "category": "Hero/Base"}, {"number": 235, "name": "Saman Ghoddos", "team": "Iran", "category": "Hero/Base"}, {"number": 236, "name": "Mohammad Mohebi", "team": "Iran", "category": "Hero/Base"}, {"number": 237, "name": "Alireza Jahanbakhsh", "team": "Iran", "category": "Hero/Base"}, {"number": 238, "name": "Franck Kessie", "team": "Ivory Coast", "category": "Fan Favourite"}, {"number": 239, "name": "Team Crest (Ivory Coast)", "team": "Ivory Coast", "category": "Teamwappen"}, {"number": 240, "name": "Sebastien Haller", "team": "Ivory Coast", "category": "Icon"}, {"number": 241, "name": "Yahia Fofana", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 242, "name": "Ghislain Konan", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 243, "name": "Odilon Kossounou", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 244, "name": "Evan N'Dicka", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 245, "name": "Wilfried Singo", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 246, "name": "Ibrahim Sangare", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 247, "name": "Nicolas Pepe", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 248, "name": "Simon Adingra", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 249, "name": "Oumar Diakite", "team": "Ivory Coast", "category": "Hero/Base"}, {"number": 250, "name": "Takumi Minamino", "team": "Japan", "category": "Fan Favourite"}, {"number": 251, "name": "Team Crest (Japan)", "team": "Japan", "category": "Teamwappen"}, {"number": 252, "name": "Takefusa Kubo", "team": "Japan", "category": "Icon"}, {"number": 253, "name": "Zion Suzuki", "team": "Japan", "category": "Hero/Base"}, {"number": 254, "name": "Tsuyoshi Watanabe", "team": "Japan", "category": "Hero/Base"}, {"number": 255, "name": "Kaishu Sano", "team": "Japan", "category": "Hero/Base"}, {"number": 256, "name": "Ao Tanaka", "team": "Japan", "category": "Hero/Base"}, {"number": 257, "name": "Daichi Kamada", "team": "Japan", "category": "Hero/Base"}, {"number": 258, "name": "Ritsu Doan", "team": "Japan", "category": "Hero/Base"}, {"number": 259, "name": "Keito Nakamura", "team": "Japan", "category": "Hero/Base"}, {"number": 260, "name": "Shuto Machino", "team": "Japan", "category": "Hero/Base"}, {"number": 261, "name": "Ayase Ueda", "team": "Japan", "category": "Hero/Base"}, {"number": 262, "name": "Yazan Al-Naimat", "team": "Jordan", "category": "Fan Favourite"}, {"number": 263, "name": "Team Crest (Jordan)", "team": "Jordan", "category": "Teamwappen"}, {"number": 264, "name": "Musa Al-Taamari", "team": "Jordan", "category": "Icon"}, {"number": 265, "name": "Yazeed Abulaila", "team": "Jordan", "category": "Hero/Base"}, {"number": 266, "name": "Mohammad Abu Hashish", "team": "Jordan", "category": "Hero/Base"}, {"number": 267, "name": "Yazan Al-Arab", "team": "Jordan", "category": "Hero/Base"}, {"number": 268, "name": "Abdallah Nasib", "team": "Jordan", "category": "Hero/Base"}, {"number": 269, "name": "Ibrahim Saadeh", "team": "Jordan", "category": "Hero/Base"}, {"number": 270, "name": "Nizar Al-Rashdan", "team": "Jordan", "category": "Hero/Base"}, {"number": 271, "name": "Noor Al-Rawabdeh", "team": "Jordan", "category": "Hero/Base"}, {"number": 272, "name": "Mahmoud Al-Mardi", "team": "Jordan", "category": "Hero/Base"}, {"number": 273, "name": "Ali Olwan", "team": "Jordan", "category": "Hero/Base"}, {"number": 274, "name": "Min-jae Kim", "team": "Korea Republic", "category": "Fan Favourite"}, {"number": 275, "name": "Team Crest (Korea Republic)", "team": "Korea Republic", "category": "Teamwappen"}, {"number": 276, "name": "Heung-Min Son", "team": "Korea Republic", "category": "Icon"}, {"number": 277, "name": "Hyeon-woo Jo", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 278, "name": "Young-woo Seol", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 279, "name": "Yu-min Cho", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 280, "name": "Tae-seok Lee", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 281, "name": "In-beom Hwang", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 282, "name": "Jae-sung Lee", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 283, "name": "Kang-in Lee", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 284, "name": "Hyeon-gyu Oh", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 285, "name": "Hee-chan Hwang", "team": "Korea Republic", "category": "Hero/Base"}, {"number": 286, "name": "Edson Álvarez", "team": "Mexico", "category": "Fan Favourite"}, {"number": 287, "name": "Team Crest (Mexico)", "team": "Mexico", "category": "Teamwappen"}, {"number": 288, "name": "Raúl Jiménez", "team": "Mexico", "category": "Icon"}, {"number": 289, "name": "Luis Malagón", "team": "Mexico", "category": "Hero/Base"}, {"number": 290, "name": "Israel Reyes", "team": "Mexico", "category": "Hero/Base"}, {"number": 291, "name": "Johan Vásquez", "team": "Mexico", "category": "Hero/Base"}, {"number": 292, "name": "César Montes", "team": "Mexico", "category": "Hero/Base"}, {"number": 293, "name": "Jesús Gallardo", "team": "Mexico", "category": "Hero/Base"}, {"number": 294, "name": "Carlos Rodríguez", "team": "Mexico", "category": "Hero/Base"}, {"number": 295, "name": "Orbelín Pineda", "team": "Mexico", "category": "Hero/Base"}, {"number": 296, "name": "Hirving Lozano", "team": "Mexico", "category": "Hero/Base"}, {"number": 297, "name": "Santiago Giménez", "team": "Mexico", "category": "Hero/Base"}, {"number": 298, "name": "Youssef En-Nesyri", "team": "Morocco", "category": "Fan Favourite"}, {"number": 299, "name": "Team Crest (Morocco)", "team": "Morocco", "category": "Teamwappen"}, {"number": 300, "name": "Achraf Hakimi", "team": "Morocco", "category": "Icon"}, {"number": 301, "name": "Yassine Bounou", "team": "Morocco", "category": "Hero/Base"}, {"number": 302, "name": "Noussair Mazraoui", "team": "Morocco", "category": "Hero/Base"}, {"number": 303, "name": "Nayef Aguerd", "team": "Morocco", "category": "Hero/Base"}, {"number": 304, "name": "Sofyan Amrabat", "team": "Morocco", "category": "Hero/Base"}, {"number": 305, "name": "Eliesse Ben Seghir", "team": "Morocco", "category": "Hero/Base"}, {"number": 306, "name": "Ismael Saibari", "team": "Morocco", "category": "Hero/Base"}, {"number": 307, "name": "Brahim Díaz", "team": "Morocco", "category": "Hero/Base"}, {"number": 308, "name": "Abde Ezzalzouli", "team": "Morocco", "category": "Hero/Base"}, {"number": 309, "name": "Ayoub El Kaabi", "team": "Morocco", "category": "Hero/Base"}, {"number": 310, "name": "Memphis Depay", "team": "Netherlands", "category": "Fan Favourite"}, {"number": 311, "name": "Team Crest (Netherlands)", "team": "Netherlands", "category": "Teamwappen"}, {"number": 312, "name": "Virgil van Dijk", "team": "Netherlands", "category": "Icon"}, {"number": 313, "name": "Bart Verbruggen", "team": "Netherlands", "category": "Hero/Base"}, {"number": 314, "name": "Nathan Aké", "team": "Netherlands", "category": "Hero/Base"}, {"number": 315, "name": "Jeremie Frimpong", "team": "Netherlands", "category": "Hero/Base"}, {"number": 316, "name": "Denzel Dumfries", "team": "Netherlands", "category": "Hero/Base"}, {"number": 317, "name": "Tijjani Reijnders", "team": "Netherlands", "category": "Hero/Base"}, {"number": 318, "name": "Ryan Gravenberch", "team": "Netherlands", "category": "Hero/Base"}, {"number": 319, "name": "Cody Gakpo", "team": "Netherlands", "category": "Hero/Base"}, {"number": 320, "name": "Donyell Malen", "team": "Netherlands", "category": "Hero/Base"}, {"number": 321, "name": "Wout Weghorst", "team": "Netherlands", "category": "Hero/Base"}, {"number": 322, "name": "Marko Stamenic", "team": "New Zealand", "category": "Fan Favourite"}, {"number": 323, "name": "Team Crest (New Zealand)", "team": "New Zealand", "category": "Teamwappen"}, {"number": 324, "name": "Chris Wood", "team": "New Zealand", "category": "Icon"}, {"number": 325, "name": "Max Crocombe", "team": "New Zealand", "category": "Hero/Base"}, {"number": 326, "name": "Michael Boxall", "team": "New Zealand", "category": "Hero/Base"}, {"number": 327, "name": "Liberato Cacace", "team": "New Zealand", "category": "Hero/Base"}, {"number": 328, "name": "Tim Payne", "team": "New Zealand", "category": "Hero/Base"}, {"number": 329, "name": "Finn Surman", "team": "New Zealand", "category": "Hero/Base"}, {"number": 330, "name": "Joe Bell", "team": "New Zealand", "category": "Hero/Base"}, {"number": 331, "name": "Sarpreet Singh", "team": "New Zealand", "category": "Hero/Base"}, {"number": 332, "name": "Matt Garbett", "team": "New Zealand", "category": "Hero/Base"}, {"number": 333, "name": "Elijah Just", "team": "New Zealand", "category": "Hero/Base"}, {"number": 334, "name": "Martin Ødegaard", "team": "Norway", "category": "Fan Favourite"}, {"number": 335, "name": "Team Crest (Norway)", "team": "Norway", "category": "Teamwappen"}, {"number": 336, "name": "Erling Haaland", "team": "Norway", "category": "Icon"}, {"number": 337, "name": "Orjan Nyland", "team": "Norway", "category": "Hero/Base"}, {"number": 338, "name": "Julian Ryerson", "team": "Norway", "category": "Hero/Base"}, {"number": 339, "name": "Kristoffer Vassbakk Ajer", "team": "Norway", "category": "Hero/Base"}, {"number": 340, "name": "David Moller Wolfe", "team": "Norway", "category": "Hero/Base"}, {"number": 341, "name": "Sander Berge", "team": "Norway", "category": "Hero/Base"}, {"number": 342, "name": "Patrick Berg", "team": "Norway", "category": "Hero/Base"}, {"number": 343, "name": "Antonio Nusa", "team": "Norway", "category": "Hero/Base"}, {"number": 344, "name": "Oscar Bobb", "team": "Norway", "category": "Hero/Base"}, {"number": 345, "name": "Alexander Sorloth", "team": "Norway", "category": "Hero/Base"}, {"number": 346, "name": "Michael Amir Murillo", "team": "Panama", "category": "Fan Favourite"}, {"number": 347, "name": "Team Crest (Panama)", "team": "Panama", "category": "Teamwappen"}, {"number": 348, "name": "Anibal Godoy", "team": "Panama", "category": "Icon"}, {"number": 349, "name": "Orlando Mosquera", "team": "Panama", "category": "Hero/Base"}, {"number": 350, "name": "Andres Andrade", "team": "Panama", "category": "Hero/Base"}, {"number": 351, "name": "Fidel Escobar", "team": "Panama", "category": "Hero/Base"}, {"number": 352, "name": "Cristian Martinez", "team": "Panama", "category": "Hero/Base"}, {"number": 353, "name": "Adalberto Carrasquilla", "team": "Panama", "category": "Hero/Base"}, {"number": 354, "name": "Edgar Barcenas", "team": "Panama", "category": "Hero/Base"}, {"number": 355, "name": "Jose Fajardo", "team": "Panama", "category": "Hero/Base"}, {"number": 356, "name": "Ismael Diaz", "team": "Panama", "category": "Hero/Base"}, {"number": 357, "name": "Jose Luis Rodriguez", "team": "Panama", "category": "Hero/Base"}, {"number": 358, "name": "Gustavo Gomez", "team": "Paraguay", "category": "Fan Favourite"}, {"number": 359, "name": "Team Crest (Paraguay)", "team": "Paraguay", "category": "Teamwappen"}, {"number": 360, "name": "Miguel Almiron", "team": "Paraguay", "category": "Icon"}, {"number": 361, "name": "Roberto Fernandez", "team": "Paraguay", "category": "Hero/Base"}, {"number": 362, "name": "Juan Jose Caceres", "team": "Paraguay", "category": "Hero/Base"}, {"number": 363, "name": "Omar Alderete", "team": "Paraguay", "category": "Hero/Base"}, {"number": 364, "name": "Junior Alonso", "team": "Paraguay", "category": "Hero/Base"}, {"number": 365, "name": "Andres Cubas", "team": "Paraguay", "category": "Hero/Base"}, {"number": 366, "name": "Mathias Villasanti", "team": "Paraguay", "category": "Hero/Base"}, {"number": 367, "name": "Julio Enciso", "team": "Paraguay", "category": "Hero/Base"}, {"number": 368, "name": "Ramon Sosa", "team": "Paraguay", "category": "Hero/Base"}, {"number": 369, "name": "Antonio Sanabria", "team": "Paraguay", "category": "Hero/Base"}, {"number": 370, "name": "Vitinha", "team": "Portugal", "category": "Fan Favourite"}, {"number": 371, "name": "Team Crest (Portugal)", "team": "Portugal", "category": "Teamwappen"}, {"number": 372, "name": "Cristiano Ronaldo", "team": "Portugal", "category": "Icon"}, {"number": 373, "name": "Diogo Costa", "team": "Portugal", "category": "Hero/Base"}, {"number": 374, "name": "Rúben Dias", "team": "Portugal", "category": "Hero/Base"}, {"number": 375, "name": "Nuno Mendes", "team": "Portugal", "category": "Hero/Base"}, {"number": 376, "name": "Bernardo Silva", "team": "Portugal", "category": "Hero/Base"}, {"number": 377, "name": "Bruno Fernandes", "team": "Portugal", "category": "Hero/Base"}, {"number": 378, "name": "Rúben Neves", "team": "Portugal", "category": "Hero/Base"}, {"number": 379, "name": "Francisco Conceicao", "team": "Portugal", "category": "Hero/Base"}, {"number": 380, "name": "Pedro Neto", "team": "Portugal", "category": "Hero/Base"}, {"number": 381, "name": "Rafael Leão", "team": "Portugal", "category": "Hero/Base"}, {"number": 382, "name": "Almoez Ali", "team": "Qatar", "category": "Fan Favourite"}, {"number": 383, "name": "Team Crest (Qatar)", "team": "Qatar", "category": "Teamwappen"}, {"number": 384, "name": "Hasan Al-Haydos", "team": "Qatar", "category": "Icon"}, {"number": 385, "name": "Meshaal Barsham", "team": "Qatar", "category": "Hero/Base"}, {"number": 386, "name": "Boualem Khoukhi", "team": "Qatar", "category": "Hero/Base"}, {"number": 387, "name": "Lucas Mendes", "team": "Qatar", "category": "Hero/Base"}, {"number": 388, "name": "Pedro Miguel", "team": "Qatar", "category": "Hero/Base"}, {"number": 389, "name": "Homam Al-Amin", "team": "Qatar", "category": "Hero/Base"}, {"number": 390, "name": "Ahmed Fathi", "team": "Qatar", "category": "Hero/Base"}, {"number": 391, "name": "Edmilson Junior", "team": "Qatar", "category": "Hero/Base"}, {"number": 392, "name": "Ahmed Al-Ganehi", "team": "Qatar", "category": "Hero/Base"}, {"number": 393, "name": "Akram Hassan Afif", "team": "Qatar", "category": "Hero/Base"}, {"number": 394, "name": "Feras Al-Buraikan", "team": "Saudi Arabia", "category": "Fan Favourite"}, {"number": 395, "name": "Team Crest (Saudi Arabia)", "team": "Saudi Arabia", "category": "Teamwappen"}, {"number": 396, "name": "Salem Al-Dawsari", "team": "Saudi Arabia", "category": "Icon"}, {"number": 397, "name": "Nawaf Al-Aqidi", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 398, "name": "Hassan Al-Tambakti", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 399, "name": "Jehad Thikri", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 400, "name": "Saud Abdulhamid", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 401, "name": "Nasser Al-Dawsari", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 402, "name": "Abdullah Al-Khaibari", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 403, "name": "Musab Al-Juwayr", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 404, "name": "Saleh Abu Al-Shamat", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 405, "name": "Saleh Al-Shehri", "team": "Saudi Arabia", "category": "Hero/Base"}, {"number": 406, "name": "Scott McTominay", "team": "Scotland", "category": "Fan Favourite"}, {"number": 407, "name": "Team Crest (Scotland)", "team": "Scotland", "category": "Teamwappen"}, {"number": 408, "name": "Andrew Robertson", "team": "Scotland", "category": "Icon"}, {"number": 409, "name": "Angus Gunn", "team": "Scotland", "category": "Hero/Base"}, {"number": 410, "name": "Kieran Tierney", "team": "Scotland", "category": "Hero/Base"}, {"number": 411, "name": "Grant Hanley", "team": "Scotland", "category": "Hero/Base"}, {"number": 412, "name": "Billy Gilmour", "team": "Scotland", "category": "Hero/Base"}, {"number": 413, "name": "Lewis Ferguson", "team": "Scotland", "category": "Hero/Base"}, {"number": 414, "name": "Ryan Christie", "team": "Scotland", "category": "Hero/Base"}, {"number": 415, "name": "John McGinn", "team": "Scotland", "category": "Hero/Base"}, {"number": 416, "name": "Ben Doak", "team": "Scotland", "category": "Hero/Base"}, {"number": 417, "name": "Che Adams", "team": "Scotland", "category": "Hero/Base"}, {"number": 418, "name": "Kalidou Koulibaly", "team": "Senegal", "category": "Fan Favourite"}, {"number": 419, "name": "Team Crest (Senegal)", "team": "Senegal", "category": "Teamwappen"}, {"number": 420, "name": "Sadio Mané", "team": "Senegal", "category": "Icon"}, {"number": 421, "name": "Édouard Mendy", "team": "Senegal", "category": "Hero/Base"}, {"number": 422, "name": "Moussa Niakhate", "team": "Senegal", "category": "Hero/Base"}, {"number": 423, "name": "El Hadji Malick Diouf", "team": "Senegal", "category": "Hero/Base"}, {"number": 424, "name": "Idrissa Gana Gueye", "team": "Senegal", "category": "Hero/Base"}, {"number": 425, "name": "Pape Matar Sarr", "team": "Senegal", "category": "Hero/Base"}, {"number": 426, "name": "Iliman Ndiaye", "team": "Senegal", "category": "Hero/Base"}, {"number": 427, "name": "Krépin Diatta", "team": "Senegal", "category": "Hero/Base"}, {"number": 428, "name": "Ismaïla Sarr", "team": "Senegal", "category": "Hero/Base"}, {"number": 429, "name": "Nicolas Jackson", "team": "Senegal", "category": "Hero/Base"}, {"number": 430, "name": "Lyle Foster", "team": "South Africa", "category": "Fan Favourite"}, {"number": 431, "name": "Team Crest (South Africa)", "team": "South Africa", "category": "Teamwappen"}, {"number": 432, "name": "Ronwen Williams", "team": "South Africa", "category": "Icon"}, {"number": 433, "name": "Siyabonga Ngezana", "team": "South Africa", "category": "Hero/Base"}, {"number": 434, "name": "Aubrey Modiba", "team": "South Africa", "category": "Hero/Base"}, {"number": 435, "name": "Mbekezeli Mbokazi", "team": "South Africa", "category": "Hero/Base"}, {"number": 436, "name": "Khuliso Mudau", "team": "South Africa", "category": "Hero/Base"}, {"number": 437, "name": "Teboho Mokoena", "team": "South Africa", "category": "Hero/Base"}, {"number": 438, "name": "Yaya Sithole", "team": "South Africa", "category": "Hero/Base"}, {"number": 439, "name": "Themba Zwane", "team": "South Africa", "category": "Hero/Base"}, {"number": 440, "name": "Oswin Appollis", "team": "South Africa", "category": "Hero/Base"}, {"number": 441, "name": "Iqraam Rayners", "team": "South Africa", "category": "Hero/Base"}, {"number": 442, "name": "Lamine Yamal", "team": "Spain", "category": "Fan Favourite"}, {"number": 443, "name": "Team Crest (Spain)", "team": "Spain", "category": "Teamwappen"}, {"number": 444, "name": "Rodri", "team": "Spain", "category": "Icon"}, {"number": 445, "name": "Unai Simón", "team": "Spain", "category": "Hero/Base"}, {"number": 446, "name": "Robin Le Normand", "team": "Spain", "category": "Hero/Base"}, {"number": 447, "name": "Dean Huijsen", "team": "Spain", "category": "Hero/Base"}, {"number": 448, "name": "Marc Cucurella", "team": "Spain", "category": "Hero/Base"}, {"number": 449, "name": "Martin Zubimendi", "team": "Spain", "category": "Hero/Base"}, {"number": 450, "name": "Pedri", "team": "Spain", "category": "Hero/Base"}, {"number": 451, "name": "Fabián Ruiz", "team": "Spain", "category": "Hero/Base"}, {"number": 452, "name": "Nico Williams", "team": "Spain", "category": "Hero/Base"}, {"number": 453, "name": "Mikel Oyarzabal", "team": "Spain", "category": "Hero/Base"}, {"number": 454, "name": "Manuel Akanji", "team": "Switzerland", "category": "Fan Favourite"}, {"number": 455, "name": "Team Crest (Switzerland)", "team": "Switzerland", "category": "Teamwappen"}, {"number": 456, "name": "Granit Xhaka", "team": "Switzerland", "category": "Icon"}, {"number": 457, "name": "Gregor Kobel", "team": "Switzerland", "category": "Hero/Base"}, {"number": 458, "name": "Nico Elvedi", "team": "Switzerland", "category": "Hero/Base"}, {"number": 459, "name": "Ricardo Rodríguez", "team": "Switzerland", "category": "Hero/Base"}, {"number": 460, "name": "Silvan Widmer", "team": "Switzerland", "category": "Hero/Base"}, {"number": 461, "name": "Denis Zakaria", "team": "Switzerland", "category": "Hero/Base"}, {"number": 462, "name": "Remo Freuler", "team": "Switzerland", "category": "Hero/Base"}, {"number": 463, "name": "Breel Embolo", "team": "Switzerland", "category": "Hero/Base"}, {"number": 464, "name": "Ruben Vargas", "team": "Switzerland", "category": "Hero/Base"}, {"number": 465, "name": "Dan Ndoye", "team": "Switzerland", "category": "Hero/Base"}, {"number": 466, "name": "Ferjani Sassi", "team": "Tunisia", "category": "Fan Favourite"}, {"number": 467, "name": "Team Crest (Tunisia)", "team": "Tunisia", "category": "Teamwappen"}, {"number": 468, "name": "Ellyes Skhiri", "team": "Tunisia", "category": "Icon"}, {"number": 469, "name": "Aymen Dahmen", "team": "Tunisia", "category": "Hero/Base"}, {"number": 470, "name": "Montassar Talbi", "team": "Tunisia", "category": "Hero/Base"}, {"number": 471, "name": "Yassine Meriah", "team": "Tunisia", "category": "Hero/Base"}, {"number": 472, "name": "Ali Abdi", "team": "Tunisia", "category": "Hero/Base"}, {"number": 473, "name": "Aïssa Laïdouni", "team": "Tunisia", "category": "Hero/Base"}, {"number": 474, "name": "Hannibal Mejbri", "team": "Tunisia", "category": "Hero/Base"}, {"number": 475, "name": "Naïm Sliti", "team": "Tunisia", "category": "Hero/Base"}, {"number": 476, "name": "Elias Achouri", "team": "Tunisia", "category": "Hero/Base"}, {"number": 477, "name": "Hazem Mastouri", "team": "Tunisia", "category": "Hero/Base"}, {"number": 478, "name": "Weston McKennie", "team": "United States", "category": "Fan Favourite"}, {"number": 479, "name": "Team Crest (United States)", "team": "United States", "category": "Teamwappen"}, {"number": 480, "name": "Christian Pulisic", "team": "United States", "category": "Icon"}, {"number": 481, "name": "Matt Freese", "team": "United States", "category": "Hero/Base"}, {"number": 482, "name": "Chris Richards", "team": "United States", "category": "Hero/Base"}, {"number": 483, "name": "Tim Ream", "team": "United States", "category": "Hero/Base"}, {"number": 484, "name": "Antonee Robinson", "team": "United States", "category": "Hero/Base"}, {"number": 485, "name": "Tanner Tessmann", "team": "United States", "category": "Hero/Base"}, {"number": 486, "name": "Tyler Adams", "team": "United States", "category": "Hero/Base"}, {"number": 487, "name": "Timothy Weah", "team": "United States", "category": "Hero/Base"}, {"number": 488, "name": "Malik Tillman", "team": "United States", "category": "Hero/Base"}, {"number": 489, "name": "Folarin Balogun", "team": "United States", "category": "Hero/Base"}, {"number": 490, "name": "José María Giménez", "team": "Uruguay", "category": "Fan Favourite"}, {"number": 491, "name": "Team Crest (Uruguay)", "team": "Uruguay", "category": "Teamwappen"}, {"number": 492, "name": "Federico Valverde", "team": "Uruguay", "category": "Icon"}, {"number": 493, "name": "Sergio Rochet", "team": "Uruguay", "category": "Hero/Base"}, {"number": 494, "name": "Ronald Araújo", "team": "Uruguay", "category": "Hero/Base"}, {"number": 495, "name": "Sebastian Caceres", "team": "Uruguay", "category": "Hero/Base"}, {"number": 496, "name": "Mathías Olivera", "team": "Uruguay", "category": "Hero/Base"}, {"number": 497, "name": "Nahitan Nandez", "team": "Uruguay", "category": "Hero/Base"}, {"number": 498, "name": "Rodrigo Bentancur", "team": "Uruguay", "category": "Hero/Base"}, {"number": 499, "name": "Manuel Ugarte", "team": "Uruguay", "category": "Hero/Base"}, {"number": 500, "name": "Facundo Pellistri", "team": "Uruguay", "category": "Hero/Base"}, {"number": 501, "name": "Darwin Núñez", "team": "Uruguay", "category": "Hero/Base"}, {"number": 502, "name": "Abdukodir Khusanov", "team": "Uzbekistan", "category": "Fan Favourite"}, {"number": 503, "name": "Team Crest (Uzbekistan)", "team": "Uzbekistan", "category": "Teamwappen"}, {"number": 504, "name": "Eldor Shomurodov", "team": "Uzbekistan", "category": "Icon"}, {"number": 505, "name": "Utkir Yusupov", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 506, "name": "Farrukh Sayfiev", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 507, "name": "Sherzod Nasrullaev", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 508, "name": "Husniddin Aliqulov", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 509, "name": "Rustam Ashurmatov", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 510, "name": "Khojiakbar Alijonov", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 511, "name": "Odiljon Hamrobekov", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 512, "name": "Otabek Shukurov", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 513, "name": "Abbosbek Fayzullaev", "team": "Uzbekistan", "category": "Hero/Base"}, {"number": 514, "name": "Italy - Northern Ireland / Wales - Bosnia and Herzegovina", "team": "Contenders", "category": "Contenders"}, {"number": 515, "name": "Ukraine - Sweden / Poland - Albania", "team": "Contenders", "category": "Contenders"}, {"number": 516, "name": "Turkey - Romania / Slovakia - Kosovo", "team": "Contenders", "category": "Contenders"}, {"number": 517, "name": "Denmark - North Macedonia / Czechia - Ireland", "team": "Contenders", "category": "Contenders"}, {"number": 518, "name": "New Caledonia - Jamaica / DR Congo", "team": "Contenders", "category": "Contenders"}, {"number": 519, "name": "Suriname - Bolivia / Iraq", "team": "Contenders", "category": "Contenders"}, {"number": 520, "name": "Morten Hjulmand", "team": "Denmark", "category": "Contenders"}, {"number": 521, "name": "Pierre-Emile Højbjerg", "team": "Denmark", "category": "Contenders"}, {"number": 522, "name": "Christian Eriksen", "team": "Denmark", "category": "Contenders"}, {"number": 523, "name": "Mikkel Damsgaard", "team": "Denmark", "category": "Contenders"}, {"number": 524, "name": "Rasmus Hojlund", "team": "Denmark", "category": "Contenders"}, {"number": 525, "name": "Gianluigi Donnarumma", "team": "Italy", "category": "Contenders"}, {"number": 526, "name": "Alessandro Bastoni", "team": "Italy", "category": "Contenders"}, {"number": 527, "name": "Sandro Tonali", "team": "Italy", "category": "Contenders"}, {"number": 528, "name": "Nicolò Barella", "team": "Italy", "category": "Contenders"}, {"number": 529, "name": "Moises Kean", "team": "Italy", "category": "Contenders"}, {"number": 530, "name": "Andre Blake", "team": "Jamaica", "category": "Contenders"}, {"number": 531, "name": "Ethan Pinnock", "team": "Jamaica", "category": "Contenders"}, {"number": 532, "name": "Demarai Gray", "team": "Jamaica", "category": "Contenders"}, {"number": 533, "name": "Leon Bailey", "team": "Jamaica", "category": "Contenders"}, {"number": 534, "name": "Shamar Nicholson", "team": "Jamaica", "category": "Contenders"}, {"number": 535, "name": "Matty Cash", "team": "Poland", "category": "Contenders"}, {"number": 536, "name": "Jakub Kiwior", "team": "Poland", "category": "Contenders"}, {"number": 537, "name": "Piotr Zieliński", "team": "Poland", "category": "Contenders"}, {"number": 538, "name": "Sebastian Szymanski", "team": "Poland", "category": "Contenders"}, {"number": 539, "name": "Robert Lewandowski", "team": "Poland", "category": "Contenders"}, {"number": 540, "name": "Isak Hien", "team": "Sweden", "category": "Contenders"}, {"number": 541, "name": "Dejan Kulusevski", "team": "Sweden", "category": "Contenders"}, {"number": 542, "name": "Anthony Elanga", "team": "Sweden", "category": "Contenders"}, {"number": 543, "name": "Viktor Gyokeres", "team": "Sweden", "category": "Contenders"}, {"number": 544, "name": "Alexander Isak", "team": "Sweden", "category": "Contenders"}, {"number": 545, "name": "Caglar Soyuncu", "team": "Turkey", "category": "Contenders"}, {"number": 546, "name": "Hakan Calhanoglu", "team": "Turkey", "category": "Contenders"}, {"number": 547, "name": "Arda Güler", "team": "Turkey", "category": "Contenders"}, {"number": 548, "name": "Kenan Yıldız", "team": "Turkey", "category": "Contenders"}, {"number": 549, "name": "Kerem Akturkoglu", "team": "Turkey", "category": "Contenders"}, {"number": 550, "name": "Emiliano Martínez", "team": "Argentina", "category": "Top Keepers"}, {"number": 551, "name": "Thibaut Courtois", "team": "Belgium", "category": "Top Keepers"}, {"number": 552, "name": "Alisson", "team": "Brazil", "category": "Top Keepers"}, {"number": 553, "name": "Mike Maignan", "team": "France", "category": "Top Keepers"}, {"number": 554, "name": "Junnosuke Suzuki", "team": "Japan", "category": "Top Keepers"}, {"number": 555, "name": "Yassine Bounou", "team": "Morocco", "category": "Top Keepers"}, {"number": 556, "name": "Diogo Costa", "team": "Portugal", "category": "Top Keepers"}, {"number": 557, "name": "Unai Simón", "team": "Spain", "category": "Top Keepers"}, {"number": 558, "name": "Gregor Kobel", "team": "Switzerland", "category": "Top Keepers"}, {"number": 559, "name": "Éder Militão", "team": "Brazil", "category": "Defensive Rocks"}, {"number": 560, "name": "Alphonso Davies", "team": "Canada", "category": "Defensive Rocks"}, {"number": 561, "name": "William Saliba", "team": "France", "category": "Defensive Rocks"}, {"number": 562, "name": "Antonio Rüdiger", "team": "Germany", "category": "Defensive Rocks"}, {"number": 563, "name": "Min-jae Kim", "team": "Korea Republic", "category": "Defensive Rocks"}, {"number": 564, "name": "Achraf Hakimi", "team": "Morocco", "category": "Defensive Rocks"}, {"number": 565, "name": "Virgil van Dijk", "team": "Netherlands", "category": "Defensive Rocks"}, {"number": 566, "name": "Nuno Mendes", "team": "Portugal", "category": "Defensive Rocks"}, {"number": 567, "name": "Dean Huijsen", "team": "Spain", "category": "Defensive Rocks"}, {"number": 568, "name": "Enzo Fernández", "team": "Argentina", "category": "Midfield Maestros"}, {"number": 569, "name": "Kevin De Bruyne", "team": "Belgium", "category": "Midfield Maestros"}, {"number": 570, "name": "Casemiro", "team": "Brazil", "category": "Midfield Maestros"}, {"number": 571, "name": "Luka Modrić", "team": "Croatia", "category": "Midfield Maestros"}, {"number": 572, "name": "Moisés Caicedo", "team": "Ecuador", "category": "Midfield Maestros"}, {"number": 573, "name": "Jude Bellingham", "team": "England", "category": "Midfield Maestros"}, {"number": 574, "name": "Aurélien Tchouaméni", "team": "France", "category": "Midfield Maestros"}, {"number": 575, "name": "Florian Wirtz", "team": "Germany", "category": "Midfield Maestros"}, {"number": 576, "name": "Sofyan Amrabat", "team": "Morocco", "category": "Midfield Maestros"}, {"number": 577, "name": "Tijjani Reijnders", "team": "Netherlands", "category": "Midfield Maestros"}, {"number": 578, "name": "Martin Ødegaard", "team": "Norway", "category": "Midfield Maestros"}, {"number": 579, "name": "Vitinha", "team": "Portugal", "category": "Midfield Maestros"}, {"number": 580, "name": "Scott McTominay", "team": "Scotland", "category": "Midfield Maestros"}, {"number": 581, "name": "Rodri", "team": "Spain", "category": "Midfield Maestros"}, {"number": 582, "name": "Pedri", "team": "Spain", "category": "Midfield Maestros"}, {"number": 583, "name": "Granit Xhaka", "team": "Switzerland", "category": "Midfield Maestros"}, {"number": 584, "name": "Tyler Adams", "team": "United States", "category": "Midfield Maestros"}, {"number": 585, "name": "Federico Valverde", "team": "Uruguay", "category": "Midfield Maestros"}, {"number": 586, "name": "Julián Álvarez", "team": "Argentina", "category": "Goal Machines"}, {"number": 587, "name": "Romelu Lukaku", "team": "Belgium", "category": "Goal Machines"}, {"number": 588, "name": "Raphinha", "team": "Brazil", "category": "Goal Machines"}, {"number": 589, "name": "Jonathan David", "team": "Canada", "category": "Goal Machines"}, {"number": 590, "name": "Luis Díaz", "team": "Colombia", "category": "Goal Machines"}, {"number": 591, "name": "Andrej Kramarić", "team": "Croatia", "category": "Goal Machines"}, {"number": 592, "name": "Enner Valencia", "team": "Ecuador", "category": "Goal Machines"}, {"number": 593, "name": "Omar Marmoush", "team": "Egypt", "category": "Goal Machines"}, {"number": 594, "name": "Marcus Rashford", "team": "England", "category": "Goal Machines"}, {"number": 595, "name": "Randal Kolo Muani", "team": "France", "category": "Goal Machines"}, {"number": 596, "name": "Kai Havertz", "team": "Germany", "category": "Goal Machines"}, {"number": 597, "name": "Sebastien Haller", "team": "Ivory Coast", "category": "Goal Machines"}, {"number": 598, "name": "Raúl Jiménez", "team": "Mexico", "category": "Goal Machines"}, {"number": 599, "name": "Youssef En-Nesyri", "team": "Morocco", "category": "Goal Machines"}, {"number": 600, "name": "Cody Gakpo", "team": "Netherlands", "category": "Goal Machines"}, {"number": 601, "name": "Chris Wood", "team": "New Zealand", "category": "Goal Machines"}, {"number": 602, "name": "Alexander Sorloth", "team": "Norway", "category": "Goal Machines"}, {"number": 603, "name": "Nicolas Jackson", "team": "Senegal", "category": "Goal Machines"}, {"number": 604, "name": "Mikel Oyarzabal", "team": "Spain", "category": "Goal Machines"}, {"number": 605, "name": "Breel Embolo", "team": "Switzerland", "category": "Goal Machines"}, {"number": 606, "name": "Christian Pulisic", "team": "United States", "category": "Goal Machines"}, {"number": 607, "name": "Darwin Núñez", "team": "Uruguay", "category": "Goal Machines"}, {"number": 608, "name": "Nico Paz", "team": "Argentina", "category": "Master Rookie"}, {"number": 609, "name": "Franco Mastantuono", "team": "Argentina", "category": "Master Rookie"}, {"number": 610, "name": "Zeno Debast", "team": "Belgium", "category": "Master Rookie"}, {"number": 611, "name": "Wesley", "team": "Brazil", "category": "Master Rookie"}, {"number": 612, "name": "Estevao Willian", "team": "Brazil", "category": "Master Rookie"}, {"number": 613, "name": "Petar Sucic", "team": "Croatia", "category": "Master Rookie"}, {"number": 614, "name": "Kendry Paez", "team": "Ecuador", "category": "Master Rookie"}, {"number": 615, "name": "Morgan Rogers", "team": "England", "category": "Master Rookie"}, {"number": 616, "name": "Desire Doue", "team": "France", "category": "Master Rookie"}, {"number": 617, "name": "Bradley Barcola", "team": "France", "category": "Master Rookie"}, {"number": 618, "name": "Nick Woltemade", "team": "Germany", "category": "Master Rookie"}, {"number": 619, "name": "Xavi Simons", "team": "Netherlands", "category": "Master Rookie"}, {"number": 620, "name": "Andreas Schjelderup", "team": "Norway", "category": "Master Rookie"}, {"number": 621, "name": "Gustavo Gomez", "team": "Paraguay", "category": "Master Rookie"}, {"number": 622, "name": "Joao Neves", "team": "Portugal", "category": "Master Rookie"}, {"number": 623, "name": "Pau Cubarsí", "team": "Spain", "category": "Master Rookie"}, {"number": 624, "name": "Official Emblem", "team": "FIFA", "category": "Official Emblem"}, {"number": 625, "name": "Maple", "team": "FIFA", "category": "Official Mascot"}, {"number": 626, "name": "Clutch", "team": "FIFA", "category": "Official Mascot"}, {"number": 627, "name": "Zavu", "team": "FIFA", "category": "Official Mascot"}, {"number": 628, "name": "Eternos 22 - Defenders", "team": "Argentina", "category": "Eternos 22"}, {"number": 629, "name": "Eternos 22 - Midfielders", "team": "Argentina", "category": "Eternos 22"}, {"number": 630, "name": "Eternos 22 - Forwards", "team": "Argentina", "category": "Eternos 22"}];
-    const EXTRA_CARDS = [{"number": "LE001", "displayNumber": "LE001", "name": "Lionel Messi", "team": "Argentina", "category": "Limited Edition", "sort": 1001}, {"number": "LE002", "displayNumber": "LE002", "name": "Julián Alvarez", "team": "Argentina", "category": "Limited Edition", "sort": 1002}, {"number": "LE003", "displayNumber": "LE003", "name": "Kevin De Bruyne", "team": "Belgium", "category": "Limited Edition", "sort": 1003}, {"number": "LE004", "displayNumber": "LE004", "name": "Vinícius Júnior", "team": "Brazil", "category": "Limited Edition", "sort": 1004}, {"number": "LE005", "displayNumber": "LE005", "name": "Luka Modrić", "team": "Croatia", "category": "Limited Edition", "sort": 1005}, {"number": "LE006", "displayNumber": "LE006", "name": "Moisés Caicedo", "team": "Ecuador", "category": "Limited Edition", "sort": 1006}, {"number": "LE007", "displayNumber": "LE007", "name": "Mohamed Salah", "team": "Egypt", "category": "Limited Edition", "sort": 1007}, {"number": "LE008", "displayNumber": "LE008", "name": "Cole Palmer", "team": "England", "category": "Limited Edition", "sort": 1008}, {"number": "LE009", "displayNumber": "LE009", "name": "Harry Kane", "team": "England", "category": "Limited Edition", "sort": 1009}, {"number": "LE010", "displayNumber": "LE010", "name": "Kylian Mbappé", "team": "France", "category": "Limited Edition", "sort": 1010}, {"number": "LE011", "displayNumber": "LE011", "name": "Ousmane Dembélé", "team": "France", "category": "Limited Edition", "sort": 1011}, {"number": "LE012", "displayNumber": "LE012", "name": "Florian Wirtz", "team": "Germany", "category": "Limited Edition", "sort": 1012}, {"number": "LE013", "displayNumber": "LE013", "name": "Heung-Min Son", "team": "Korea Republic", "category": "Limited Edition", "sort": 1013}, {"number": "LE014", "displayNumber": "LE014", "name": "Achraf Hakimi", "team": "Morocco", "category": "Limited Edition", "sort": 1014}, {"number": "LE015", "displayNumber": "LE015", "name": "Tijjani Reijnders", "team": "Netherlands", "category": "Limited Edition", "sort": 1015}, {"number": "LE016", "displayNumber": "LE016", "name": "Erling Haaland", "team": "Norway", "category": "Limited Edition", "sort": 1016}, {"number": "LE017", "displayNumber": "LE017", "name": "Rafael Leão", "team": "Portugal", "category": "Limited Edition", "sort": 1017}, {"number": "LE018", "displayNumber": "LE018", "name": "Cristiano Ronaldo", "team": "Portugal", "category": "Limited Edition", "sort": 1018}, {"number": "LE019", "displayNumber": "LE019", "name": "Pedri", "team": "Spain", "category": "Limited Edition", "sort": 1019}, {"number": "LE020", "displayNumber": "LE020", "name": "Lamine Yamal", "team": "Spain", "category": "Limited Edition", "sort": 1020}, {"number": "LE021", "displayNumber": "LE021", "name": "David Alaba", "team": "Austria", "category": "Limited Edition", "sort": 1021}, {"number": "LE022", "displayNumber": "LE022", "name": "Mike Maignan", "team": "France", "category": "Limited Edition", "sort": 1022}, {"number": "LE023", "displayNumber": "LE023", "name": "Thibaut Courtois", "team": "Belgium", "category": "Limited Edition", "sort": 1023}, {"number": "LE024", "displayNumber": "LE024", "name": "Raphinha", "team": "Brazil", "category": "Limited Edition", "sort": 1024}, {"number": "LE025", "displayNumber": "LE025", "name": "Rodrygo", "team": "Brazil", "category": "Limited Edition", "sort": 1025}, {"number": "LE026", "displayNumber": "LE026", "name": "Jonathan David", "team": "Canada", "category": "Limited Edition", "sort": 1026}, {"number": "LE027", "displayNumber": "LE027", "name": "Scott McTominay", "team": "Scotland", "category": "Limited Edition", "sort": 1027}, {"number": "LE028", "displayNumber": "LE028", "name": "Omar Marmoush", "team": "Egypt", "category": "Limited Edition", "sort": 1028}, {"number": "LE029", "displayNumber": "LE029", "name": "Eberechi Eze", "team": "England", "category": "Limited Edition", "sort": 1029}, {"number": "LE030", "displayNumber": "LE030", "name": "Bukayo Saka", "team": "England", "category": "Limited Edition", "sort": 1030}, {"number": "LE031", "displayNumber": "LE031", "name": "Michael Olise", "team": "France", "category": "Limited Edition", "sort": 1031}, {"number": "LE032", "displayNumber": "LE032", "name": "Joshua Kimmich", "team": "Germany", "category": "Limited Edition", "sort": 1032}, {"number": "LE033", "displayNumber": "LE033", "name": "Brahim Díaz", "team": "Morocco", "category": "Limited Edition", "sort": 1033}, {"number": "LE034", "displayNumber": "LE034", "name": "Virgil van Dijk", "team": "Netherlands", "category": "Limited Edition", "sort": 1034}, {"number": "LE035", "displayNumber": "LE035", "name": "Martin Ødegaard", "team": "Norway", "category": "Limited Edition", "sort": 1035}, {"number": "LE036", "displayNumber": "LE036", "name": "Vitinha", "team": "Portugal", "category": "Limited Edition", "sort": 1036}, {"number": "LE037", "displayNumber": "LE037", "name": "Granit Xhaka", "team": "Switzerland", "category": "Limited Edition", "sort": 1037}, {"number": "LE038", "displayNumber": "LE038", "name": "Rodri", "team": "Spain", "category": "Limited Edition", "sort": 1038}, {"number": "LE039", "displayNumber": "LE039", "name": "Weston McKennie", "team": "United States", "category": "Limited Edition", "sort": 1039}, {"number": "LE040", "displayNumber": "LE040", "name": "Federico Valverde", "team": "Uruguay", "category": "Limited Edition", "sort": 1040}, {"number": "LE041", "displayNumber": "LE041", "name": "Lautaro Martínez", "team": "Argentina", "category": "Limited Edition", "sort": 1041}, {"number": "LE042", "displayNumber": "LE042", "name": "Romelu Lukaku", "team": "Belgium", "category": "Limited Edition", "sort": 1042}, {"number": "LE043", "displayNumber": "LE043", "name": "Marquinhos", "team": "Brazil", "category": "Limited Edition", "sort": 1043}, {"number": "LE044", "displayNumber": "LE044", "name": "Luis Díaz", "team": "Colombia", "category": "Limited Edition", "sort": 1044}, {"number": "LE045", "displayNumber": "LE045", "name": "Ryan Gravenberch", "team": "Netherlands", "category": "Limited Edition", "sort": 1045}, {"number": "LE046", "displayNumber": "LE046", "name": "Willian Pacho", "team": "Ecuador", "category": "Limited Edition", "sort": 1046}, {"number": "LE047", "displayNumber": "LE047", "name": "Declan Rice", "team": "England", "category": "Limited Edition", "sort": 1047}, {"number": "LE048", "displayNumber": "LE048", "name": "Jules Koundé", "team": "France", "category": "Limited Edition", "sort": 1048}, {"number": "LE049", "displayNumber": "LE049", "name": "Marcus Thuram", "team": "France", "category": "Limited Edition", "sort": 1049}, {"number": "LE050", "displayNumber": "LE050", "name": "Antonio Rüdiger", "team": "Germany", "category": "Limited Edition", "sort": 1050}, {"number": "LE051", "displayNumber": "LE051", "name": "Kai Havertz", "team": "Germany", "category": "Limited Edition", "sort": 1051}, {"number": "LE052", "displayNumber": "LE052", "name": "Min-jae Kim", "team": "Korea Republic", "category": "Limited Edition", "sort": 1052}, {"number": "LE053", "displayNumber": "LE053", "name": "Santiago Giménez", "team": "Mexico", "category": "Limited Edition", "sort": 1053}, {"number": "LE054", "displayNumber": "LE054", "name": "Denzel Dumfries", "team": "Netherlands", "category": "Limited Edition", "sort": 1054}, {"number": "LE055", "displayNumber": "LE055", "name": "Chris Wood", "team": "New Zealand", "category": "Limited Edition", "sort": 1055}, {"number": "LE056", "displayNumber": "LE056", "name": "Oscar Bobb", "team": "Norway", "category": "Limited Edition", "sort": 1056}, {"number": "LE057", "displayNumber": "LE057", "name": "Nuno Mendes", "team": "Portugal", "category": "Limited Edition", "sort": 1057}, {"number": "LE058", "displayNumber": "LE058", "name": "Sadio Mané", "team": "Senegal", "category": "Limited Edition", "sort": 1058}, {"number": "LE059", "displayNumber": "LE059", "name": "Nico Williams", "team": "Spain", "category": "Limited Edition", "sort": 1059}, {"number": "LE060", "displayNumber": "LE060", "name": "Christian Pulisic", "team": "United States", "category": "Limited Edition", "sort": 1060}, {"number": "LE061", "displayNumber": "LE061", "name": "Nico Paz", "team": "Argentina", "category": "Limited Edition", "sort": 1061}, {"number": "LE062", "displayNumber": "LE062", "name": "Jérémy Doku", "team": "Belgium", "category": "Limited Edition", "sort": 1062}, {"number": "LE063", "displayNumber": "LE063", "name": "Estêvão", "team": "Brazil", "category": "Limited Edition", "sort": 1063}, {"number": "LE064", "displayNumber": "LE064", "name": "Alphonso Davies", "team": "Canada", "category": "Limited Edition", "sort": 1064}, {"number": "LE065", "displayNumber": "LE065", "name": "Joško Gvardiol", "team": "Croatia", "category": "Limited Edition", "sort": 1065}, {"number": "LE066", "displayNumber": "LE066", "name": "Gilberto Mora", "team": "Mexico", "category": "Limited Edition", "sort": 1066}, {"number": "LE067", "displayNumber": "LE067", "name": "Nick Woltemade", "team": "Germany", "category": "Limited Edition", "sort": 1067}, {"number": "LE068", "displayNumber": "LE068", "name": "Jude Bellingham", "team": "England", "category": "Limited Edition", "sort": 1068}, {"number": "LE069", "displayNumber": "LE069", "name": "Aurélien Tchouaméni", "team": "France", "category": "Limited Edition", "sort": 1069}, {"number": "LE070", "displayNumber": "LE070", "name": "Désiré Doué", "team": "France", "category": "Limited Edition", "sort": 1070}, {"number": "LE071", "displayNumber": "LE071", "name": "Jamal Musiala", "team": "Germany", "category": "Limited Edition", "sort": 1071}, {"number": "LE072", "displayNumber": "LE072", "name": "Sébastien Haller", "team": "Ivory Coast", "category": "Limited Edition", "sort": 1072}, {"number": "LE073", "displayNumber": "LE073", "name": "Takefusa Kubo", "team": "Japan", "category": "Limited Edition", "sort": 1073}, {"number": "LE074", "displayNumber": "LE074", "name": "Raúl Jiménez", "team": "Mexico", "category": "Limited Edition", "sort": 1074}, {"number": "LE075", "displayNumber": "LE075", "name": "Xavi Simons", "team": "Netherlands", "category": "Limited Edition", "sort": 1075}, {"number": "LE076", "displayNumber": "LE076", "name": "Antonio Nusa", "team": "Norway", "category": "Limited Edition", "sort": 1076}, {"number": "LE077", "displayNumber": "LE077", "name": "João Neves", "team": "Portugal", "category": "Limited Edition", "sort": 1077}, {"number": "LE078", "displayNumber": "LE078", "name": "Pau Cubarsí", "team": "Spain", "category": "Limited Edition", "sort": 1078}, {"number": "LE079", "displayNumber": "LE079", "name": "Darwin Núñez", "team": "Uruguay", "category": "Limited Edition", "sort": 1079}, {"number": "LE080", "displayNumber": "LE080", "name": "Abdukodir Khusanov", "team": "Uzbekistan", "category": "Limited Edition", "sort": 1080}, {"number": "LE081", "displayNumber": "LE081", "name": "Nick Woltemade", "team": "Germany", "category": "LE Squad DFB", "sort": 1081}, {"number": "LE082", "displayNumber": "LE082", "name": "Leon Goretzka", "team": "Germany", "category": "LE Squad DFB", "sort": 1082}, {"number": "LE083", "displayNumber": "LE083", "name": "Kai Havertz", "team": "Germany", "category": "LE Squad DFB", "sort": 1083}, {"number": "LE084", "displayNumber": "LE084", "name": "Joshua Kimmich", "team": "Germany", "category": "LE Squad DFB", "sort": 1084}, {"number": "LE085", "displayNumber": "LE085", "name": "Jamal Musiala", "team": "Germany", "category": "LE Squad DFB", "sort": 1085}, {"number": "LE086", "displayNumber": "LE086", "name": "Antonio Rüdiger", "team": "Germany", "category": "LE Squad DFB", "sort": 1086}, {"number": "LE087", "displayNumber": "LE087", "name": "Leroy Sané", "team": "Germany", "category": "LE Squad DFB", "sort": 1087}, {"number": "LE088", "displayNumber": "LE088", "name": "Jonathan Tah", "team": "Germany", "category": "LE Squad DFB", "sort": 1088}, {"number": "LE089", "displayNumber": "LE089", "name": "Marc-André ter Stegen", "team": "Germany", "category": "LE Squad DFB", "sort": 1089}, {"number": "LE090", "displayNumber": "LE090", "name": "Florian Wirtz", "team": "Germany", "category": "LE Squad DFB", "sort": 1090}, {"number": "PLE001", "displayNumber": "PLE001", "name": "Youri Tielemans", "team": "Belgium", "category": "Premium LE Silber", "sort": 2001}, {"number": "PLE002", "displayNumber": "PLE002", "name": "Vinícius Júnior", "team": "Brazil", "category": "Premium LE Silber", "sort": 2002}, {"number": "PLE003", "displayNumber": "PLE003", "name": "Phil Foden", "team": "England", "category": "Premium LE Silber", "sort": 2003}, {"number": "PLE004", "displayNumber": "PLE004", "name": "Eduardo Camavinga", "team": "France", "category": "Premium LE Silber", "sort": 2004}, {"number": "PLE005", "displayNumber": "PLE005", "name": "Leroy Sané", "team": "Germany", "category": "Premium LE Silber", "sort": 2005}, {"number": "PLE006", "displayNumber": "PLE006", "name": "Takumi Minamino", "team": "Japan", "category": "Premium LE Silber", "sort": 2006}, {"number": "PLE007", "displayNumber": "PLE007", "name": "Raúl Jiménez", "team": "Mexico", "category": "Premium LE Silber", "sort": 2007}, {"number": "PLE008", "displayNumber": "PLE008", "name": "Sofyan Amrabat", "team": "Morocco", "category": "Premium LE Silber", "sort": 2008}, {"number": "PLE009", "displayNumber": "PLE009", "name": "Erling Haaland", "team": "Norway", "category": "Premium LE Silber", "sort": 2009}, {"number": "PLE010", "displayNumber": "PLE010", "name": "Kalidou Koulibaly", "team": "Senegal", "category": "Premium LE Silber", "sort": 2010}, {"number": "PLE011", "displayNumber": "PLE011", "name": "Manuel Akanji", "team": "Switzerland", "category": "Premium LE Silber", "sort": 2011}, {"number": "PLE012", "displayNumber": "PLE012", "name": "Folarin Balogun", "team": "United States", "category": "Premium LE Silber", "sort": 2012}, {"number": "PGOLD-LM", "displayNumber": "—", "name": "Lionel Messi", "team": "Argentina", "category": "Premium Gold LE", "sort": 3001}, {"number": "PGOLD-JR", "displayNumber": "—", "name": "James Rodríguez", "team": "Colombia", "category": "Premium Gold LE", "sort": 3002}, {"number": "PGOLD-MR", "displayNumber": "—", "name": "Marcus Rashford", "team": "England", "category": "Premium Gold LE", "sort": 3003}, {"number": "PGOLD-MM", "displayNumber": "—", "name": "Mike Maignan", "team": "France", "category": "Premium Gold LE", "sort": 3004}, {"number": "PGOLD-MD", "displayNumber": "—", "name": "Memphis Depay", "team": "Netherlands", "category": "Premium Gold LE", "sort": 3005}, {"number": "PGOLD-LY", "displayNumber": "—", "name": "Lamine Yamal", "team": "Spain", "category": "Premium Gold LE", "sort": 3006}, {"number": "TROPHY-RED", "displayNumber": "—", "name": "Trophy Card Rot", "team": "FIFA", "category": "Trophy Card", "sort": 3007}, {"number": "TROPHY-GREY", "displayNumber": "—", "name": "Trophy Card Grau/Blau-Grün", "team": "FIFA", "category": "Trophy Card", "sort": 3008}, {"number": "TROPHY-GREEN", "displayNumber": "—", "name": "Trophy Card Grün", "team": "FIFA", "category": "Trophy Card", "sort": 3009}, {"number": "TROPHY-BLUE", "displayNumber": "—", "name": "Trophy Card Blau", "team": "FIFA", "category": "Trophy Card", "sort": 3010}, {"number": "UPDATE-MC", "displayNumber": "—", "name": "Marc Cucurella", "team": "Spain", "category": "Exclusive LE Update Set", "sort": 3011}, {"number": "UPDATE-GS", "displayNumber": "—", "name": "Giuliano Simeone", "team": "Argentina", "category": "Exclusive LE Update Set", "sort": 3012}, {"number": "MOMENTUM-JB", "displayNumber": "—", "name": "Jude Bellingham", "team": "England", "category": "Momentum LE", "sort": 3013}, {"number": "MOMENTUM-OD", "displayNumber": "—", "name": "Ousmane Dembélé", "team": "France", "category": "Momentum LE", "sort": 3014}, {"number": "MOMENTUM-CP", "displayNumber": "—", "name": "Christian Pulisic", "team": "United States", "category": "Momentum LE", "sort": 3015}, {"number": "MOMENTUM-LEGENDS", "displayNumber": "—", "name": "Pelé / Zinédine Zidane / Franz Beckenbauer", "team": "Brazil / France / Germany", "category": "Momentum LE", "sort": 3016}];
+    const EXTRA_CARDS = [{"number": "LE001","displayNumber": "LE001","name": "Lionel Messi","team": "Argentina","category": "Limited Edition","sort": 1001},{"number": "LE002","displayNumber": "LE002","name": "Julián Alvarez","team": "Argentina","category": "Limited Edition","sort": 1002},{"number": "LE003","displayNumber": "LE003","name": "Kevin De Bruyne","team": "Belgium","category": "Limited Edition","sort": 1003},{"number": "LE004","displayNumber": "LE004","name": "Vinícius Júnior","team": "Brazil","category": "Limited Edition","sort": 1004},{"number": "LE005","displayNumber": "LE005","name": "Luka Modrić","team": "Croatia","category": "Limited Edition","sort": 1005},{"number": "LE006","displayNumber": "LE006","name": "Moisés Caicedo","team": "Ecuador","category": "Limited Edition","sort": 1006},{"number": "LE007","displayNumber": "LE007","name": "Mohamed Salah","team": "Egypt","category": "Limited Edition","sort": 1007},{"number": "LE008","displayNumber": "LE008","name": "Cole Palmer","team": "England","category": "Limited Edition","sort": 1008},{"number": "LE009","displayNumber": "LE009","name": "Harry Kane","team": "England","category": "Limited Edition","sort": 1009},{"number": "LE010","displayNumber": "LE010","name": "Kylian Mbappé","team": "France","category": "Limited Edition","sort": 1010},{"number": "LE011","displayNumber": "LE011","name": "Ousmane Dembélé","team": "France","category": "Limited Edition","sort": 1011},{"number": "GERLE-WIRTZ","displayNumber": "—","name": "Florian Wirtz","team": "Germany","category": "Limited Edition","sort": 1012.1},{"number": "LE012","displayNumber": "LE012","name": "Heung-Min Son","team": "Korea Republic","category": "Limited Edition","sort": 1013},{"number": "LE013","displayNumber": "LE013","name": "Achraf Hakimi","team": "Morocco","category": "Limited Edition","sort": 1014},{"number": "LE014","displayNumber": "LE014","name": "Tijjani Reijnders","team": "Netherlands","category": "Limited Edition","sort": 1015},{"number": "LE015","displayNumber": "LE015","name": "Erling Haaland","team": "Norway","category": "Limited Edition","sort": 1016},{"number": "LE016","displayNumber": "LE016","name": "Rafael Leão","team": "Portugal","category": "Limited Edition","sort": 1017},{"number": "LE017","displayNumber": "LE017","name": "Cristiano Ronaldo","team": "Portugal","category": "Limited Edition","sort": 1018},{"number": "LE018","displayNumber": "LE018","name": "Pedri","team": "Spain","category": "Limited Edition","sort": 1019},{"number": "LE019","displayNumber": "LE019","name": "Lamine Yamal","team": "Spain","category": "Limited Edition","sort": 1020},{"number": "LE020","displayNumber": "LE020","name": "David Alaba","team": "Austria","category": "Limited Edition","sort": 1021},{"number": "LE021","displayNumber": "LE021","name": "Matthew Ryan","team": "Australia","category": "Limited Edition","sort": 1022},{"number": "LE022","displayNumber": "LE022","name": "Thibaut Courtois","team": "Belgium","category": "Limited Edition","sort": 1023},{"number": "LE023","displayNumber": "LE023","name": "Raphinha","team": "Brazil","category": "Limited Edition","sort": 1024},{"number": "LE024","displayNumber": "LE024","name": "Rodrygo","team": "Brazil","category": "Limited Edition","sort": 1025},{"number": "LE025","displayNumber": "LE025","name": "Jonathan David","team": "Canada","category": "Limited Edition","sort": 1026},{"number": "LE026","displayNumber": "LE026","name": "Scott McTominay","team": "Scotland","category": "Limited Edition","sort": 1027},{"number": "LE027","displayNumber": "LE027","name": "Omar Marmoush","team": "Egypt","category": "Limited Edition","sort": 1028},{"number": "LE028","displayNumber": "LE028","name": "Eberechi Eze","team": "England","category": "Limited Edition","sort": 1029},{"number": "LE029","displayNumber": "LE029","name": "Bukayo Saka","team": "England","category": "Limited Edition","sort": 1030},{"number": "LE030","displayNumber": "LE030","name": "Michael Olise","team": "France","category": "Limited Edition","sort": 1031},{"number": "GERLE-KIMMICH","displayNumber": "—","name": "Joshua Kimmich","team": "Germany","category": "Limited Edition","sort": 1032.1},{"number": "LE031","displayNumber": "LE031","name": "Brahim Díaz","team": "Morocco","category": "Limited Edition","sort": 1033},{"number": "LE032","displayNumber": "LE032","name": "Virgil van Dijk","team": "Netherlands","category": "Limited Edition","sort": 1034},{"number": "LE033","displayNumber": "LE033","name": "Martin Ødegaard","team": "Norway","category": "Limited Edition","sort": 1035},{"number": "LE034","displayNumber": "LE034","name": "Vitinha","team": "Portugal","category": "Limited Edition","sort": 1036},{"number": "LE035","displayNumber": "LE035","name": "Granit Xhaka","team": "Switzerland","category": "Limited Edition","sort": 1037},{"number": "LE036","displayNumber": "LE036","name": "Rodri","team": "Spain","category": "Limited Edition","sort": 1038},{"number": "LE037","displayNumber": "LE037","name": "Weston McKennie","team": "United States","category": "Limited Edition","sort": 1039},{"number": "LE038","displayNumber": "LE038","name": "Federico Valverde","team": "Uruguay","category": "Limited Edition","sort": 1040},{"number": "LE039","displayNumber": "LE039","name": "Lautaro Martínez","team": "Argentina","category": "Limited Edition","sort": 1041},{"number": "LE040","displayNumber": "LE040","name": "Romelu Lukaku","team": "Belgium","category": "Limited Edition","sort": 1042},{"number": "LE041","displayNumber": "LE041","name": "Marquinhos","team": "Brazil","category": "Limited Edition","sort": 1043},{"number": "LE042","displayNumber": "LE042","name": "Luis Díaz","team": "Colombia","category": "Limited Edition","sort": 1044},{"number": "LE043","displayNumber": "LE043","name": "Ryan Gravenberch","team": "Netherlands","category": "Limited Edition","sort": 1045},{"number": "LE044","displayNumber": "LE044","name": "Willian Pacho","team": "Ecuador","category": "Limited Edition","sort": 1046},{"number": "LE045","displayNumber": "LE045","name": "Declan Rice","team": "England","category": "Limited Edition","sort": 1047},{"number": "LE046","displayNumber": "LE046","name": "Jules Koundé","team": "France","category": "Limited Edition","sort": 1048},{"number": "LE047","displayNumber": "LE047","name": "Marcus Thuram","team": "France","category": "Limited Edition","sort": 1049},{"number": "GERLE-RUEDIGER","displayNumber": "—","name": "Antonio Rüdiger","team": "Germany","category": "Limited Edition","sort": 1050.1},{"number": "GERLE-HAVERTZ","displayNumber": "—","name": "Kai Havertz","team": "Germany","category": "Limited Edition","sort": 1051.1},{"number": "LE048","displayNumber": "LE048","name": "Min-jae Kim","team": "Korea Republic","category": "Limited Edition","sort": 1052},{"number": "LE049","displayNumber": "LE049","name": "Santiago Giménez","team": "Mexico","category": "Limited Edition","sort": 1053},{"number": "LE050","displayNumber": "LE050","name": "Denzel Dumfries","team": "Netherlands","category": "Limited Edition","sort": 1054},{"number": "LE051","displayNumber": "LE051","name": "Chris Wood","team": "New Zealand","category": "Limited Edition","sort": 1055},{"number": "LE052","displayNumber": "LE052","name": "Oscar Bobb","team": "Norway","category": "Limited Edition","sort": 1056},{"number": "LE053","displayNumber": "LE053","name": "Nuno Mendes","team": "Portugal","category": "Limited Edition","sort": 1057},{"number": "LE054","displayNumber": "LE054","name": "Sadio Mané","team": "Senegal","category": "Limited Edition","sort": 1058},{"number": "LE055","displayNumber": "LE055","name": "Nico Williams","team": "Spain","category": "Limited Edition","sort": 1059},{"number": "LE056","displayNumber": "LE056","name": "Christian Pulisic","team": "United States","category": "Limited Edition","sort": 1060},{"number": "LE057","displayNumber": "LE057","name": "Nico Paz","team": "Argentina","category": "Limited Edition","sort": 1061},{"number": "LE058","displayNumber": "LE058","name": "Jérémy Doku","team": "Belgium","category": "Limited Edition","sort": 1062},{"number": "LE059","displayNumber": "LE059","name": "Estêvão","team": "Brazil","category": "Limited Edition","sort": 1063},{"number": "LE060","displayNumber": "LE060","name": "Alphonso Davies","team": "Canada","category": "Limited Edition","sort": 1064},{"number": "LE061","displayNumber": "LE061","name": "Joško Gvardiol","team": "Croatia","category": "Limited Edition","sort": 1065},{"number": "LE062","displayNumber": "LE062","name": "Dean Huijsen","team": "Spain","category": "Limited Edition","sort": 1066},{"number": "GERLE-WOLTEMADE","displayNumber": "—","name": "Nick Woltemade","team": "Germany","category": "Limited Edition","sort": 1067.1},{"number": "LE063","displayNumber": "LE063","name": "Jude Bellingham","team": "England","category": "Limited Edition","sort": 1068},{"number": "LE064","displayNumber": "LE064","name": "Aurélien Tchouaméni","team": "France","category": "Limited Edition","sort": 1069},{"number": "LE065","displayNumber": "LE065","name": "Désiré Doué","team": "France","category": "Limited Edition","sort": 1070},{"number": "GERLE-MUSIALA","displayNumber": "—","name": "Jamal Musiala","team": "Germany","category": "Limited Edition","sort": 1071.1},{"number": "LE066","displayNumber": "LE066","name": "Amad Diallo","team": "Ivory Coast","category": "Limited Edition","sort": 1072},{"number": "LE067","displayNumber": "LE067","name": "Takefusa Kubo","team": "Japan","category": "Limited Edition","sort": 1073},{"number": "LE068","displayNumber": "LE068","name": "Gilberto Mora","team": "Mexico","category": "Limited Edition","sort": 1074},{"number": "LE069","displayNumber": "LE069","name": "Xavi Simons","team": "Netherlands","category": "Limited Edition","sort": 1075},{"number": "LE070","displayNumber": "LE070","name": "Antonio Nusa","team": "Norway","category": "Limited Edition","sort": 1076},{"number": "LE071","displayNumber": "LE071","name": "João Neves","team": "Portugal","category": "Limited Edition","sort": 1077},{"number": "LE072","displayNumber": "LE072","name": "Pau Cubarsí","team": "Spain","category": "Limited Edition","sort": 1078},{"number": "LE073","displayNumber": "LE073","name": "Darwin Núñez","team": "Uruguay","category": "Limited Edition","sort": 1079},{"number": "LE074","displayNumber": "LE074","name": "Abdukodir Khusanov","team": "Uzbekistan","category": "Limited Edition","sort": 1080},{"number": "DFBLE001","displayNumber": "DFBLE001","name": "Nick Woltemade","team": "Germany","category": "LE Squad DFB","sort": 1081},{"number": "DFBLE002","displayNumber": "DFBLE002","name": "Leon Goretzka","team": "Germany","category": "LE Squad DFB","sort": 1082},{"number": "DFBLE003","displayNumber": "DFBLE003","name": "Kai Havertz","team": "Germany","category": "LE Squad DFB","sort": 1083},{"number": "DFBLE004","displayNumber": "DFBLE004","name": "Joshua Kimmich","team": "Germany","category": "LE Squad DFB","sort": 1084},{"number": "DFBLE005","displayNumber": "DFBLE005","name": "Jamal Musiala","team": "Germany","category": "LE Squad DFB","sort": 1085},{"number": "DFBLE006","displayNumber": "DFBLE006","name": "Antonio Rüdiger","team": "Germany","category": "LE Squad DFB","sort": 1086},{"number": "DFBLE007","displayNumber": "DFBLE007","name": "Leroy Sané","team": "Germany","category": "LE Squad DFB","sort": 1087},{"number": "DFBLE008","displayNumber": "DFBLE008","name": "Jonathan Tah","team": "Germany","category": "LE Squad DFB","sort": 1088},{"number": "DFBLE009","displayNumber": "DFBLE009","name": "Marc-André ter Stegen","team": "Germany","category": "LE Squad DFB","sort": 1089},{"number": "DFBLE010","displayNumber": "DFBLE010","name": "Florian Wirtz","team": "Germany","category": "LE Squad DFB","sort": 1090},{"number": "PLE001","displayNumber": "PLE001","name": "Youri Tielemans","team": "Belgium","category": "Premium LE Silber","sort": 2001},{"number": "PLE002","displayNumber": "PLE002","name": "Vinícius Júnior","team": "Brazil","category": "Premium LE Silber","sort": 2002},{"number": "PLE003","displayNumber": "PLE003","name": "Phil Foden","team": "England","category": "Premium LE Silber","sort": 2003},{"number": "PLE004","displayNumber": "PLE004","name": "Eduardo Camavinga","team": "France","category": "Premium LE Silber","sort": 2004},{"number": "PLE005","displayNumber": "PLE005","name": "Leroy Sané","team": "Germany","category": "Premium LE Silber","sort": 2005},{"number": "PLE006","displayNumber": "PLE006","name": "Takumi Minamino","team": "Japan","category": "Premium LE Silber","sort": 2006},{"number": "PLE007","displayNumber": "PLE007","name": "Raúl Jiménez","team": "Mexico","category": "Premium LE Silber","sort": 2007},{"number": "PLE008","displayNumber": "PLE008","name": "Sofyan Amrabat","team": "Morocco","category": "Premium LE Silber","sort": 2008},{"number": "PLE009","displayNumber": "PLE009","name": "Erling Haaland","team": "Norway","category": "Premium LE Silber","sort": 2009},{"number": "PLE010","displayNumber": "PLE010","name": "Kalidou Koulibaly","team": "Senegal","category": "Premium LE Silber","sort": 2010},{"number": "PLE011","displayNumber": "PLE011","name": "Manuel Akanji","team": "Switzerland","category": "Premium LE Silber","sort": 2011},{"number": "PLE012","displayNumber": "PLE012","name": "Folarin Balogun","team": "United States","category": "Premium LE Silber","sort": 2012},{"number": "PGLE001","displayNumber": "PGLE001","name": "Lionel Messi","team": "Argentina","category": "Premium Gold LE","sort": 3001},{"number": "PGLE002","displayNumber": "PGLE002","name": "James Rodríguez","team": "Colombia","category": "Premium Gold LE","sort": 3002},{"number": "PGLE003","displayNumber": "PGLE003","name": "Marcus Rashford","team": "England","category": "Premium Gold LE","sort": 3003},{"number": "PGLE004","displayNumber": "PGLE004","name": "Mike Maignan","team": "France","category": "Premium Gold LE","sort": 3004},{"number": "PGLE005","displayNumber": "PGLE005","name": "Memphis Depay","team": "Netherlands","category": "Premium Gold LE","sort": 3005},{"number": "PGLE006","displayNumber": "PGLE006","name": "Lamine Yamal","team": "Spain","category": "Premium Gold LE","sort": 3006},{"number": "TROPHY-RED","displayNumber": "—","name": "Trophy Card Rot","team": "FIFA","category": "Trophy Card","sort": 3007},{"number": "TROPHY-GREY","displayNumber": "—","name": "Trophy Card Grau/Blau-Grün","team": "FIFA","category": "Trophy Card","sort": 3008},{"number": "TROPHY-GREEN","displayNumber": "—","name": "Trophy Card Grün","team": "FIFA","category": "Trophy Card","sort": 3009},{"number": "TROPHY-BLUE","displayNumber": "—","name": "Trophy Card Blau","team": "FIFA","category": "Trophy Card","sort": 3010},{"number": "UPDATE-MC","displayNumber": "—","name": "Marc Cucurella","team": "Spain","category": "Exclusive LE Update Set","sort": 3011},{"number": "UPDATE-GS","displayNumber": "—","name": "Giuliano Simeone","team": "Argentina","category": "Exclusive LE Update Set","sort": 3012},{"number": "FINAL-AG","displayNumber": "—","name": "Arda Güler","team": "Turkey","category": "Exclusive LE Final Teams Set","sort": 3013},{"number": "FINAL-VG","displayNumber": "—","name": "Viktor Gyökeres","team": "Sweden","category": "Exclusive LE Final Teams Set","sort": 3014},{"number": "MOMENTUM-JB","displayNumber": "—","name": "Jude Bellingham","team": "England","category": "Momentum LE","sort": 3015},{"number": "MOMENTUM-OD","displayNumber": "—","name": "Ousmane Dembélé","team": "France","category": "Momentum LE","sort": 3016},{"number": "MOMENTUM-CP","displayNumber": "—","name": "Christian Pulisic","team": "United States","category": "Momentum LE","sort": 3017},{"number": "MOMENTUM-LEGENDS","displayNumber": "—","name": "Pelé / Zinédine Zidane / Franz Beckenbauer","team": "Brazil / France / Germany","category": "Momentum LE","sort": 3018}];
     CHECKLIST.push(...EXTRA_CARDS);
 
     const CARD_BY_ID = Object.fromEntries(CHECKLIST.map(card => [String(card.number), card]));
     const CARD_BY_NUMBER = CARD_BY_ID;
+    const CARD_ID_MIGRATION_KEY = "panini_adrenalyn_card_id_migration_v68";
+    const LEGACY_ID_MAP = {
+      "LE012": "DFBLE010",
+      "LE013": "LE012",
+      "LE014": "LE013",
+      "LE015": "LE014",
+      "LE016": "LE015",
+      "LE017": "LE016",
+      "LE018": "LE017",
+      "LE019": "LE018",
+      "LE020": "LE019",
+      "LE021": "LE020",
+      "LE022": "LE021",
+      "LE023": "LE022",
+      "LE024": "LE023",
+      "LE025": "LE024",
+      "LE026": "LE025",
+      "LE027": "LE026",
+      "LE028": "LE027",
+      "LE029": "LE028",
+      "LE030": "LE029",
+      "LE031": "LE030",
+      "LE032": "DFBLE004",
+      "LE033": "LE031",
+      "LE034": "LE032",
+      "LE035": "LE033",
+      "LE036": "LE034",
+      "LE037": "LE035",
+      "LE038": "LE036",
+      "LE039": "LE037",
+      "LE040": "LE038",
+      "LE041": "LE039",
+      "LE042": "LE040",
+      "LE043": "LE041",
+      "LE044": "LE042",
+      "LE045": "LE043",
+      "LE046": "LE044",
+      "LE047": "LE045",
+      "LE048": "LE046",
+      "LE049": "LE047",
+      "LE050": "DFBLE006",
+      "LE051": "DFBLE003",
+      "LE052": "LE048",
+      "LE053": "LE049",
+      "LE054": "LE050",
+      "LE055": "LE051",
+      "LE056": "LE052",
+      "LE057": "LE053",
+      "LE058": "LE054",
+      "LE059": "LE055",
+      "LE060": "LE056",
+      "LE061": "LE057",
+      "LE062": "LE058",
+      "LE063": "LE059",
+      "LE064": "LE060",
+      "LE065": "LE061",
+      "LE066": "LE062",
+      "LE067": "DFBLE001",
+      "LE068": "LE063",
+      "LE069": "LE064",
+      "LE070": "LE065",
+      "LE071": "DFBLE005",
+      "LE072": "LE066",
+      "LE073": "LE067",
+      "LE074": "LE068",
+      "LE075": "LE069",
+      "LE076": "LE070",
+      "LE077": "LE071",
+      "LE078": "LE072",
+      "LE079": "LE073",
+      "LE080": "LE074",
+      "LE081": "DFBLE001",
+      "LE082": "DFBLE002",
+      "LE083": "DFBLE003",
+      "LE084": "DFBLE004",
+      "LE085": "DFBLE005",
+      "LE086": "DFBLE006",
+      "LE087": "DFBLE007",
+      "LE088": "DFBLE008",
+      "LE089": "DFBLE009",
+      "LE090": "DFBLE010",
+      "PGOLD-JR": "PGLE002",
+      "PGOLD-LM": "PGLE001",
+      "PGOLD-LY": "PGLE006",
+      "PGOLD-MD": "PGLE005",
+      "PGOLD-MM": "PGLE004",
+      "PGOLD-MR": "PGLE003"
+};
 
     const DEFAULT_PRICES = {
       "Golden Baller": 6.00,
@@ -1914,16 +2378,22 @@ oder exakt: Florian Wirtz"></textarea>
       "Premium Gold LE": 10.00,
       "Trophy Card": 3.00,
       "Exclusive LE Update Set": 3.00,
+      "Exclusive LE Final Teams Set": 3.00,
       "Momentum LE": 5.00
     };
 
     const CATEGORY_ORDER = Object.keys(DEFAULT_PRICES);
+    const EXCLUDED_VALUE_CATEGORIES = ["Exclusive LE Update Set", "Exclusive LE Final Teams Set"];
     let database = {};
     let wishlist = {};
     let tradeHistory = [];
     let prices = {};
     let lastTradeResult = null;
     let lastCheckResult = null;
+    let checkLiveMode = false;
+    let tradeLiveMode = false;
+    let checkLiveTimer = null;
+    let tradeLiveTimer = null;
 
     function euro(value) {
       return Number(value || 0).toLocaleString("de-DE", { style: "currency", currency: "EUR" });
@@ -1958,6 +2428,12 @@ oder exakt: Florian Wirtz"></textarea>
       if (/^\d{1,4}$/.test(raw)) return String(parseInt(raw, 10));
 
       const compact = raw.toUpperCase().replace(/\s+/g, "");
+      const dfble = compact.match(/^DFBLE0*(\d{1,3})$/);
+      if (dfble) return "DFBLE" + String(parseInt(dfble[1], 10)).padStart(3, "0");
+
+      const pgle = compact.match(/^PGLE0*(\d{1,3})$/);
+      if (pgle) return "PGLE" + String(parseInt(pgle[1], 10)).padStart(3, "0");
+
       const le = compact.match(/^LE0*(\d{1,3})$/);
       if (le) return "LE" + String(parseInt(le[1], 10)).padStart(3, "0");
 
@@ -1978,19 +2454,21 @@ oder exakt: Florian Wirtz"></textarea>
 
     function displayCardId(id) {
       const info = getInfo(id);
-      return info.displayNumber || String(info.number);
+      if (Object.prototype.hasOwnProperty.call(info, "displayNumber")) return String(info.displayNumber);
+      return String(info.number);
     }
 
     function displayListCardId(id) {
-      const info = getInfo(id);
       const display = displayCardId(id);
-      return display === "—" ? String(info.number) : display;
+      if (display === "—") return "—";
+      if (!String(display).trim()) return "—";
+      return display;
     }
 
     function cardReference(id) {
       const info = getInfo(id);
       const display = displayCardId(id);
-      if (display === "—") return `${info.name} - ${info.category}`;
+      if (display === "—" || !String(display).trim()) return `${info.name} - ${info.category}`;
       return display;
     }
 
@@ -2076,8 +2554,10 @@ oder exakt: Florian Wirtz"></textarea>
         le: false,
         premiumSilver: false,
         premiumGold: false,
+        dfb: false,
         trophy: false,
         update: false,
+        finalTeams: false,
         momentum: false,
         base: false
       };
@@ -2094,8 +2574,12 @@ oder exakt: Florian Wirtz"></textarea>
           hints.premiumSilver = true;
           continue;
         }
-        if (["gold", "pgold"].includes(word)) {
+        if (["gold", "pgold", "pgle"].includes(word)) {
           hints.premiumGold = true;
+          continue;
+        }
+        if (["dfb", "dfble", "squad"].includes(word)) {
+          hints.dfb = true;
           continue;
         }
         if (["le", "limited", "edition", "limitededition", "limitededitions"].includes(word)) {
@@ -2104,6 +2588,10 @@ oder exakt: Florian Wirtz"></textarea>
         }
         if (["trophy", "trophie", "pokal"].includes(word)) {
           hints.trophy = true;
+          continue;
+        }
+        if (["final", "finals", "team", "teams", "finalteams"].includes(word)) {
+          hints.finalTeams = true;
           continue;
         }
         if (["update", "exclusive"].includes(word)) {
@@ -2132,11 +2620,13 @@ oder exakt: Florian Wirtz"></textarea>
       if (hints.base && !(parseInt(String(card.number), 10) >= 1 && parseInt(String(card.number), 10) <= 630)) return false;
       if (hints.premiumSilver && cat !== "Premium LE Silber") return false;
       if (hints.premiumGold && cat !== "Premium Gold LE") return false;
+      if (hints.dfb && cat !== "LE Squad DFB") return false;
       if (hints.trophy && cat !== "Trophy Card") return false;
-      if (hints.update && cat !== "Exclusive LE Update Set") return false;
+      if (hints.finalTeams && cat !== "Exclusive LE Final Teams Set") return false;
+      if (hints.update && cat !== "Exclusive LE Update Set" && cat !== "Exclusive LE Final Teams Set") return false;
       if (hints.momentum && cat !== "Momentum LE") return false;
 
-      if (hints.le && !hints.premiumSilver && !hints.premiumGold && !hints.trophy && !hints.update && !hints.momentum) {
+      if (hints.le && !hints.premiumSilver && !hints.premiumGold && !hints.dfb && !hints.trophy && !hints.update && !hints.finalTeams && !hints.momentum) {
         if (!["Limited Edition", "LE Squad DFB"].includes(cat)) return false;
       }
 
@@ -2182,14 +2672,14 @@ oder exakt: Florian Wirtz"></textarea>
       const normalizedTerm = normalizeText(term);
       const { hints } = parseSearchHints(term);
 
-      const asksSquad = /\b(squad|dfb)\b/.test(normalizedTerm);
-      const asksNormalLe = hints.le && !hints.premiumSilver && !hints.premiumGold && !hints.trophy && !hints.update && !hints.momentum;
+      const asksSquad = /\b(squad|dfb|dfble)\b/.test(normalizedTerm);
+      const asksNormalLe = hints.le && !hints.premiumSilver && !hints.premiumGold && !hints.dfb && !hints.trophy && !hints.update && !hints.finalTeams && !hints.momentum;
 
       if (!asksNormalLe || asksSquad || matches.length <= 1) return matches;
 
       const hasNormalByName = new Set(
         matches
-          .filter(card => card.team === "Germany" && card.category === "Limited Edition")
+          .filter(card => card.team === "Germany" && card.category === "Limited Edition" && String(card.displayNumber || "").trim())
           .map(card => normalizeText(card.name))
       );
 
@@ -2267,7 +2757,7 @@ oder exakt: Florian Wirtz"></textarea>
       const n = normalizeText(token);
       return [
         "le", "limited", "edition", "premium", "ple", "silber", "silver",
-        "gold", "momentum", "trophy", "update", "squad", "dfb"
+        "gold", "pgle", "dfble", "momentum", "trophy", "update", "final", "teams", "squad", "dfb"
       ].includes(n);
     }
 
@@ -2275,7 +2765,7 @@ oder exakt: Florian Wirtz"></textarea>
       const clean = String(token || "").trim();
       if (!clean) return false;
       if (isKnownCard(clean)) return true;
-      return /^(?:\d{1,4}|LE\s*0*\d{1,3}|PLE\s*0*\d{1,3})$/i.test(clean);
+      return /^(?:\d{1,4}|DFBLE\s*0*\d{1,3}|PGLE\s*0*\d{1,3}|PLE\s*0*\d{1,3}|LE\s*0*\d{1,3})$/i.test(clean);
     }
 
     function phraseHasMatch(phrase) {
@@ -2349,10 +2839,12 @@ oder exakt: Florian Wirtz"></textarea>
           core = part.slice(0, countMatch.index).trim();
         }
 
-        const codeOrNumberTokens = [...core.matchAll(/(?:PLE\s*0*\d{1,3}|LE\s*0*\d{1,3}|\d{1,4})/gi)]
+        const codeOrNumberTokens = [...core.matchAll(/(?:DFBLE\s*0*\d{1,3}|PGLE\s*0*\d{1,3}|PLE\s*0*\d{1,3}|LE\s*0*\d{1,3}|\d{1,4})/gi)]
           .map(match => match[0].trim());
 
         const leftover = normalizeText(core
+          .replace(/DFBLE\s*0*\d{1,3}/gi, "")
+          .replace(/PGLE\s*0*\d{1,3}/gi, "")
           .replace(/PLE\s*0*\d{1,3}/gi, "")
           .replace(/LE\s*0*\d{1,3}/gi, "")
           .replace(/\d{1,4}/g, "")
@@ -2379,7 +2871,7 @@ oder exakt: Florian Wirtz"></textarea>
       // "214 le" => ["214 le"]
       // "le 214" soll NICHT als LE214 gelesen werden.
       // Nur echte Codes ohne Leerzeichen bleiben Codes: LE001, PLE012.
-      const pattern = /(?:PLE0*\d{1,3}|LE0*\d{1,3}|\d{1,4}|[A-Za-zÀ-ÖØ-öø-ÿß]+)(?:\s*\(?\s*[xX]\s*\d+\s*\)?)?/gi;
+      const pattern = /(?:DFBLE0*\d{1,3}|PGLE0*\d{1,3}|PLE0*\d{1,3}|LE0*\d{1,3}|\d{1,4}|[A-Za-zÀ-ÖØ-öø-ÿß]+)(?:\s*\(?\s*[xX]\s*\d+\s*\)?)?/gi;
       let match;
 
       while ((match = pattern.exec(input)) !== null) {
@@ -2403,7 +2895,7 @@ oder exakt: Florian Wirtz"></textarea>
         }
 
         // Auch zusammengeschrieben zulassen: wirtzle, haalandple.
-        const suffixMatch = normalized.match(/^(.+?)(ple|le|premium|gold|momentum|trophy|update)$/);
+        const suffixMatch = normalized.match(/^(.+?)(dfble|pgle|ple|le|premium|gold|momentum|trophy|update|final|teams)$/);
         if (
           suffixMatch &&
           suffixMatch[1].length >= 2 &&
@@ -2666,7 +3158,7 @@ oder exakt: Florian Wirtz"></textarea>
     function objectValue(obj) {
       return Object.entries(obj).reduce((sum, [id, count]) => {
         const info = getInfo(id);
-        return sum + Number(count || 0) * (prices[info.category] || 0);
+        return sum + Number(count || 0) * (categoryPrice(info.category));
       }, 0);
     }
 
@@ -2837,11 +3329,49 @@ oder exakt: Florian Wirtz"></textarea>
       return parts.join(" ").trim();
     }
 
+    function shouldMigrateLegacyCardIds() {
+      return localStorage.getItem(CARD_ID_MIGRATION_KEY) !== "1";
+    }
+
+    function migrateCardCollectionIds(obj = {}) {
+      const migrated = {};
+      Object.entries(obj || {}).forEach(([id, count]) => {
+        const normalized = normalizeCardId(id);
+        const target = LEGACY_ID_MAP[normalized] || normalized;
+        migrated[target] = (migrated[target] || 0) + Number(count || 0);
+      });
+      return migrated;
+    }
+
+    function migrateTradeHistoryIds(items = []) {
+      if (!Array.isArray(items)) return [];
+      return items.map(item => {
+        const migratedGive = migrateCardCollectionIds(item.give || {});
+        const migratedGet = migrateCardCollectionIds(item.get || {});
+        return {
+          ...item,
+          give: migratedGive,
+          get: migratedGet,
+          giveText: formatList(migratedGive),
+          getText: formatList(migratedGet)
+        };
+      });
+    }
+
+    function finishLegacyCardIdMigration() {
+      if (!shouldMigrateLegacyCardIds()) return;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(database));
+      localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(tradeHistory.slice(0, 30)));
+      localStorage.setItem(CARD_ID_MIGRATION_KEY, "1");
+    }
+
     function loadDatabase() {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         try {
           database = JSON.parse(saved) || {};
+          if (shouldMigrateLegacyCardIds()) database = migrateCardCollectionIds(database);
           cleanDatabase();
           return;
         } catch (error) {
@@ -2853,7 +3383,7 @@ oder exakt: Florian Wirtz"></textarea>
         const oldSaved = localStorage.getItem(oldKey);
         if (oldSaved) {
           try {
-            database = JSON.parse(oldSaved) || {};
+            database = migrateCardCollectionIds(JSON.parse(oldSaved) || {});
             cleanDatabase();
             saveDatabase(false);
             return;
@@ -2883,6 +3413,7 @@ oder exakt: Florian Wirtz"></textarea>
       if (saved) {
         try {
           wishlist = JSON.parse(saved) || {};
+          if (shouldMigrateLegacyCardIds()) wishlist = migrateCardCollectionIds(wishlist);
           cleanObject(wishlist);
           return;
         } catch (error) {}
@@ -2905,6 +3436,7 @@ oder exakt: Florian Wirtz"></textarea>
         try {
           tradeHistory = JSON.parse(saved) || [];
           if (!Array.isArray(tradeHistory)) tradeHistory = [];
+          if (shouldMigrateLegacyCardIds()) tradeHistory = migrateTradeHistoryIds(tradeHistory);
           tradeHistory = tradeHistory.map((item, index) => ({
             id: item.id || `${Date.now()}_${index}`,
             status: item.status || "erledigt",
@@ -2943,7 +3475,10 @@ oder exakt: Florian Wirtz"></textarea>
       const savedV3 = localStorage.getItem(PRICE_KEY);
       if (savedV3) {
         try {
-          prices = { ...DEFAULT_PRICES, ...JSON.parse(savedV3) };
+          const savedPrices = JSON.parse(savedV3);
+          prices = { ...DEFAULT_PRICES, ...savedPrices };
+          if (savedPrices["LE Squad DFB"] !== undefined && savedPrices["DFBLE"] === undefined) prices["DFBLE"] = savedPrices["LE Squad DFB"];
+          EXCLUDED_VALUE_CATEGORIES.forEach(category => prices[category] = 0);
           return;
         } catch (error) {}
       }
@@ -2969,37 +3504,64 @@ oder exakt: Florian Wirtz"></textarea>
           if (old["Official Emblem"] !== undefined) prices["Official Emblem"] = old["Official Emblem"];
           if (old["Official Mascot"] !== undefined) prices["Official Mascot"] = old["Official Mascot"];
           if (old["Eternos 22"] !== undefined) prices["Eternos 22"] = old["Eternos 22"];
+          EXCLUDED_VALUE_CATEGORIES.forEach(category => prices[category] = 0);
           localStorage.setItem(PRICE_KEY, JSON.stringify(prices));
           return;
         } catch (error) {}
       }
 
       prices = { ...DEFAULT_PRICES };
+      EXCLUDED_VALUE_CATEGORIES.forEach(category => prices[category] = 0);
     }
 
     function slug(text) {
       return text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     }
 
+    function isExcludedValueCategory(category) {
+      return EXCLUDED_VALUE_CATEGORIES.includes(category);
+    }
+
+    function categoryPrice(category) {
+      if (isExcludedValueCategory(category)) return 0;
+      return Number(prices[category] || 0);
+    }
+
+    function priceCell(category) {
+      if (isExcludedValueCategory(category)) return "—";
+      return euro(categoryPrice(category));
+    }
+
+    function valueCell(category, value) {
+      if (isExcludedValueCategory(category)) return "—";
+      return euro(value);
+    }
+
     function renderPriceSettings() {
       const wrap = document.getElementById("priceSettings");
       wrap.innerHTML = "";
-      CATEGORY_ORDER.forEach(category => {
-        const div = document.createElement("div");
-        const label = category;
-        div.innerHTML = `
-          <label>${label}</label>
-          <input id="price-${slug(category)}" type="number" step="0.01" min="0" value="${Number(prices[category] || 0).toFixed(2)}">
-        `;
-        wrap.appendChild(div);
-      });
+      CATEGORY_ORDER
+        .filter(category => !isExcludedValueCategory(category))
+        .forEach(category => {
+          const div = document.createElement("div");
+          const label = category;
+          div.innerHTML = `
+            <label>${label}</label>
+            <input id="price-${slug(category)}" type="number" step="0.01" min="0" value="${Number(prices[category] || 0).toFixed(2)}">
+          `;
+          wrap.appendChild(div);
+        });
     }
 
     function savePrices() {
       pushUndoState("Preise ändern");
       CATEGORY_ORDER.forEach(category => {
+        if (isExcludedValueCategory(category)) {
+          prices[category] = 0;
+          return;
+        }
         const input = document.getElementById("price-" + slug(category));
-        prices[category] = parseFloat(String(input.value).replace(",", ".")) || 0;
+        if (input) prices[category] = parseFloat(String(input.value).replace(",", ".")) || 0;
       });
       localStorage.setItem(PRICE_KEY, JSON.stringify(prices));
       showMessage("priceMessage", "Preise gespeichert.", "ok");
@@ -3009,6 +3571,7 @@ oder exakt: Florian Wirtz"></textarea>
 
     function resetPrices() {
       prices = { ...DEFAULT_PRICES };
+      EXCLUDED_VALUE_CATEGORIES.forEach(category => prices[category] = 0);
       localStorage.setItem(PRICE_KEY, JSON.stringify(prices));
       renderPriceSettings();
       showMessage("priceMessage", "Standardpreise wurden wiederhergestellt.", "info");
@@ -3074,8 +3637,7 @@ oder exakt: Florian Wirtz"></textarea>
       showMessage("addMessage", msg, invalid.length || notOwned.length ? "info" : "ok");
     }
 
-    function clearCheckFields() {
-      document.getElementById("checkInput").value = "";
+    function resetCheckResultsOnly() {
       clearSuggestionBox("checkSuggestions");
 
       const tbody = document.getElementById("checkTable");
@@ -3087,7 +3649,28 @@ oder exakt: Florian Wirtz"></textarea>
       clearMessage("checkMessage");
     }
 
+    function clearCheckFields() {
+      document.getElementById("checkInput").value = "";
+      checkLiveMode = false;
+      clearTimeout(checkLiveTimer);
+      resetCheckResultsOnly();
+    }
+
+    function handleCheckInputChange() {
+      if (!checkLiveMode) return;
+      const value = document.getElementById("checkInput").value.trim();
+      clearTimeout(checkLiveTimer);
+
+      if (!value) {
+        resetCheckResultsOnly();
+        return;
+      }
+
+      checkLiveTimer = setTimeout(() => requestAnimationFrame(checkCards), 90);
+    }
+
     function checkCards() {
+      checkLiveMode = true;
       const text = document.getElementById("checkInput").value;
       const { result, invalid, suggestions } = parseCards(text, { allowNameSearch: true, suggestAmbiguous: true, splitEveryWord: true });
       renderSuggestions("checkSuggestions", "checkInput", suggestions);
@@ -3123,7 +3706,7 @@ oder exakt: Florian Wirtz"></textarea>
         const wantedCount = wishlist[number] || 0;
         const calculatedCount = Math.min(requestedCount, ownedCount);
         const info = getInfo(number);
-        const price = prices[info.category] || 0;
+        const price = categoryPrice(info.category);
         const calculatedValue = calculatedCount * price;
 
         requestedTotalCards += requestedCount;
@@ -3155,7 +3738,7 @@ oder exakt: Florian Wirtz"></textarea>
           <td>${row.info.name}</td>
           <td>${row.info.team}</td>
           <td><span class="pill">${row.info.category}</span></td>
-          <td><strong>${euro(row.calculatedValue)}</strong></td>
+          <td><strong>${valueCell(row.info.category, row.calculatedValue)}</strong></td>
         `;
         return tr;
       });
@@ -3344,7 +3927,7 @@ oder exakt: Florian Wirtz"></textarea>
         database: stableClone(database || {}),
         wishlist: stableClone(wishlist || {}),
         tradeHistory: stableClone(tradeHistory || []),
-        prices: stableClone(prices || {})
+        prices: stableClone(Object.fromEntries(Object.entries(prices || {}).filter(([category]) => !isExcludedValueCategory(category))))
       };
     }
 
@@ -3362,6 +3945,7 @@ oder exakt: Florian Wirtz"></textarea>
       localStorage.setItem(BACKUP_STATE_KEY, currentBackupFingerprint());
       if (label) localStorage.setItem(SAVE_TIME_KEY, label);
       renderMetrics();
+      updateBackupPopupStatus();
     }
 
     function hasUnsavedBackupChanges() {
@@ -3370,12 +3954,371 @@ oder exakt: Florian Wirtz"></textarea>
       return baseline !== currentBackupFingerprint();
     }
 
+    function backupPopupStatusHtml() {
+      const changed = hasUnsavedBackupChanges();
+      const last = localStorage.getItem(SAVE_TIME_KEY) || "Startliste";
+      return `
+        <div><strong>Status:</strong> ${changed ? "⚠ Änderungen vorhanden – Backup empfohlen" : "Gesichert"}</div>
+        <div><strong>Zuletzt gespeichert:</strong> ${last}</div>
+      `;
+    }
+
+    function safeParseBackupState(raw) {
+      try {
+        return JSON.parse(raw || "{}") || {};
+      } catch (error) {
+        return {};
+      }
+    }
+
+    function backupCardData(id) {
+      const key = normalizeCardId(id);
+      const info = getInfo(key);
+      const ref = displayListCardId(key) || cardReference(key);
+      return {
+        key,
+        ref: ref || key,
+        name: info && info.name ? info.name : key,
+        team: info && info.team ? info.team : "",
+        category: info && info.category ? info.category : ""
+      };
+    }
+
+    function backupCardLabel(id) {
+      const data = backupCardData(id);
+      const meta = [data.team, data.category].filter(Boolean).join(" · ");
+      return `
+        <span class="backup-card-main">
+          <strong>${escapeHtml(data.ref)} · ${escapeHtml(data.name)}</strong>
+          ${meta ? `<span class="backup-card-meta">${escapeHtml(meta)}</span>` : ""}
+        </span>
+      `;
+    }
+
+    function backupActionBadge(label, className = "action-edit") {
+      return `<span class="backup-change-type ${className}">${escapeHtml(label)}</span>`;
+    }
+
+    function backupCardChip(id, count = null) {
+      const data = backupCardData(id);
+      const amount = count === null ? "" : ` <b>x${Number(count || 0)}</b>`;
+      return `<span class="backup-card-chip">${escapeHtml(data.ref)} · ${escapeHtml(data.name)}${amount}</span>`;
+    }
+
+    function backupCollectionChips(obj = {}) {
+      const entries = sortEntries(Object.entries(obj || {})
+        .map(([id, count]) => [normalizeCardId(id), Number(count || 0)])
+        .filter(([id, count]) => isKnownCard(id) && count > 0));
+
+      if (!entries.length) return `<span class="backup-card-chip">—</span>`;
+      return entries.map(([id, count]) => backupCardChip(id, count)).join("");
+    }
+
+    function collectionChangeText(before = {}, after = {}) {
+      const ids = Array.from(new Set([
+        ...Object.keys(before || {}),
+        ...Object.keys(after || {})
+      ])).filter(id => Number(before[id] || 0) !== Number(after[id] || 0));
+
+      if (!ids.length) return "";
+
+      return sortEntries(ids.map(id => [id, 1])).map(([id]) => {
+        const oldCount = Number(before[id] || 0);
+        const newCount = Number(after[id] || 0);
+        const diff = newCount - oldCount;
+        const sign = diff > 0 ? `+${diff}` : `${diff}`;
+        return `${backupCardChip(id)} <strong>${oldCount} → ${newCount}</strong> (${sign})`;
+      }).join("<br>");
+    }
+
+    function backupCollectionChanges(title, before = {}, after = {}) {
+      const ids = Array.from(new Set([
+        ...Object.keys(before || {}),
+        ...Object.keys(after || {})
+      ])).filter(id => Number(before[id] || 0) !== Number(after[id] || 0));
+
+      if (!ids.length) return "";
+
+      const items = sortEntries(ids.map(id => [id, 1])).map(([id]) => {
+        const oldCount = Number(before[id] || 0);
+        const newCount = Number(after[id] || 0);
+        let type = "geändert";
+        let cls = "action-edit";
+        if (oldCount === 0 && newCount > 0) { type = "hinzugefügt"; cls = "action-add"; }
+        if (oldCount > 0 && newCount === 0) { type = "entfernt"; cls = "action-remove"; }
+        if (oldCount > 0 && newCount > oldCount) { type = "erhöht"; cls = "action-increase"; }
+        if (newCount > 0 && newCount < oldCount) { type = "reduziert"; cls = "action-reduce"; }
+
+        const diff = newCount - oldCount;
+        const sign = diff > 0 ? `+${diff}` : `${diff}`;
+        return `
+          <li class="backup-change-row">
+            ${backupActionBadge(type, cls)}
+            ${backupCardLabel(id)}
+            <span class="backup-count-change">${oldCount} → ${newCount} (${sign})</span>
+          </li>
+        `;
+      }).join("");
+
+      return `<h4>${escapeHtml(title)}</h4><ul class="backup-change-list">${items}</ul>`;
+    }
+
+    function backupPriceChanges(before = {}, after = {}) {
+      const cats = Array.from(new Set([
+        ...Object.keys(before || {}),
+        ...Object.keys(after || {})
+      ])).filter(category => !isExcludedValueCategory(category) && Number(before[category] || 0) !== Number(after[category] || 0));
+
+      if (!cats.length) return "";
+
+      const items = cats.sort((a,b) => a.localeCompare(b, "de")).map(category => {
+        const oldPrice = Number(before[category] || 0);
+        const newPrice = Number(after[category] || 0);
+        return `
+          <li class="backup-change-row">
+            ${backupActionBadge("Preis", "action-price")}
+            <span class="backup-card-main"><strong>${escapeHtml(category)}</strong></span>
+            <span class="backup-count-change">${euro(oldPrice)} → ${euro(newPrice)}</span>
+          </li>
+        `;
+      }).join("");
+
+      return `<h4>Preise</h4><ul class="backup-change-list">${items}</ul>`;
+    }
+
+    function comparableTrade(item = {}) {
+      return {
+        status: item.status || "",
+        type: item.type || "",
+        partner: item.partner || "",
+        location: item.location || "",
+        time: item.time || "",
+        note: item.note || "",
+        give: stableClone(item.give || {}),
+        get: stableClone(item.get || {})
+      };
+    }
+
+    function tradeFieldChange(label, before, after) {
+      const oldValue = String(before || "");
+      const newValue = String(after || "");
+      if (oldValue === newValue) return "";
+      return `<div><strong>${escapeHtml(label)}:</strong> ${escapeHtml(oldValue || "—")} → ${escapeHtml(newValue || "—")}</div>`;
+    }
+
+    function tradeValueChange(label, before, after) {
+      const oldValue = Number(before || 0);
+      const newValue = Number(after || 0);
+      if (Math.abs(oldValue - newValue) <= 0.01) return "";
+      return `<div><strong>${escapeHtml(label)}:</strong> ${euro(oldValue)} → ${euro(newValue)}</div>`;
+    }
+
+    function backupTradeCard(actionLabel, className, item = {}, details = []) {
+      const partner = escapeHtml(item.partner || "Ohne Namen");
+      const type = escapeHtml(item.type || "Treffen");
+      const status = escapeHtml(item.status || "offen");
+      const location = escapeHtml(item.location || "");
+      const time = escapeHtml(item.time || "");
+      const note = escapeHtml(item.note || "");
+
+      const metaParts = [
+        `Art: ${type}`,
+        `Status: ${status}`,
+        location ? `Ort/Adresse: ${location}` : "",
+        time ? `Zeit: ${time}` : "",
+        note ? `Notiz: ${note}` : ""
+      ].filter(Boolean);
+
+      return `
+        <div class="backup-trade-card">
+          <div class="backup-trade-head">
+            ${backupActionBadge(actionLabel, className)}
+            <span class="backup-trade-title">${partner}</span>
+            <span class="backup-trade-sub">${metaParts.join(" · ")}</span>
+          </div>
+          <div class="backup-trade-columns">
+            <div class="backup-trade-side">
+              <div class="backup-trade-side-title">Ich gebe</div>
+              <div class="backup-chip-list">${backupCollectionChips(item.give || {})}</div>
+            </div>
+            <div class="backup-trade-side">
+              <div class="backup-trade-side-title">Ich bekomme</div>
+              <div class="backup-chip-list">${backupCollectionChips(item.get || {})}</div>
+            </div>
+          </div>
+          ${details.length ? `<div class="backup-detail-grid">${details.join("")}</div>` : ""}
+        </div>
+      `;
+    }
+
+    function backupTradeChanges(beforeList = [], afterList = []) {
+      const beforeMap = Object.fromEntries((Array.isArray(beforeList) ? beforeList : []).map(item => [String(item.id), item]));
+      const afterMap = Object.fromEntries((Array.isArray(afterList) ? afterList : []).map(item => [String(item.id), item]));
+      const ids = Array.from(new Set([...Object.keys(beforeMap), ...Object.keys(afterMap)]));
+      const items = [];
+
+      ids.forEach(id => {
+        const before = beforeMap[id];
+        const after = afterMap[id];
+
+        if (!before && after) {
+          const isDone = after.status === "erledigt";
+          items.push(backupTradeCard(isDone ? "neu erledigt" : "neu gespeichert", isDone ? "action-complete" : "action-new", after));
+          return;
+        }
+
+        if (before && !after) {
+          items.push(backupTradeCard("gelöscht", "action-delete", before));
+          return;
+        }
+
+        if (!before || !after) return;
+
+        const beforeComparable = comparableTrade(before);
+        const afterComparable = comparableTrade(after);
+        if (JSON.stringify(stableClone(beforeComparable)) === JSON.stringify(stableClone(afterComparable))) return;
+
+        const details = [];
+
+        [
+          ["Status", before.status, after.status],
+          ["Art", before.type, after.type],
+          ["Partner", before.partner, after.partner],
+          ["Treffpunkt/Adresse", before.location, after.location],
+          ["Zeit", before.time, after.time],
+          ["Notiz", before.note, after.note]
+        ].forEach(([label, oldValue, newValue]) => {
+          const change = tradeFieldChange(label, oldValue, newValue);
+          if (change) details.push(change);
+        });
+
+        const giveChange = collectionChangeText(before.give || {}, after.give || {});
+        if (giveChange) details.push(`<div><strong>Ich gebe geändert:</strong><br>${giveChange}</div>`);
+
+        const getChange = collectionChangeText(before.get || {}, after.get || {});
+        if (getChange) details.push(`<div><strong>Ich bekomme geändert:</strong><br>${getChange}</div>`);
+
+        const giveValueChange = tradeValueChange("Wert ich gebe", before.giveValue, after.giveValue);
+        if (giveValueChange) details.push(giveValueChange);
+
+        const getValueChange = tradeValueChange("Wert ich bekomme", before.getValue, after.getValue);
+        if (getValueChange) details.push(getValueChange);
+
+        items.push(backupTradeCard("bearbeitet", "action-edit", after, details));
+      });
+
+      if (!items.length) return "";
+      return `<h4>Gespeicherte Tausche</h4><div class="backup-trade-list">${items.join("")}</div>`;
+    }
+
+    function pendingCountsFromHistory(items = []) {
+      const give = {};
+      const get = {};
+      (Array.isArray(items) ? items : []).forEach(item => {
+        if (!item || item.status === "erledigt") return;
+
+        Object.entries(item.give || {}).forEach(([id, count]) => {
+          const key = normalizeCardId(id);
+          if (isKnownCard(key) && Number(count || 0) > 0) give[key] = (give[key] || 0) + Number(count || 0);
+        });
+
+        Object.entries(item.get || {}).forEach(([id, count]) => {
+          const key = normalizeCardId(id);
+          if (isKnownCard(key) && Number(count || 0) > 0) get[key] = (get[key] || 0) + Number(count || 0);
+        });
+      });
+      return { give, get };
+    }
+
+    function backupCurrentPendingPanel(pending = {}) {
+      const hasReserved = countCards(pending.give || {}) > 0;
+      const hasExpected = countCards(pending.get || {}) > 0;
+      if (!hasReserved && !hasExpected) return "";
+
+      return `
+        <h4>Aktuell reserviert / erwartet</h4>
+        <div class="backup-current-grid">
+          <div class="backup-current-card">
+            <h5>${backupActionBadge("reserviert", "action-reserved")} Offene Abgaben</h5>
+            <div class="backup-chip-list">${backupCollectionChips(pending.give || {})}</div>
+          </div>
+          <div class="backup-current-card">
+            <h5>${backupActionBadge("erwartet", "action-expected")} Offene Zugänge</h5>
+            <div class="backup-chip-list">${backupCollectionChips(pending.get || {})}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function backupPendingChanges(beforeList = [], afterList = []) {
+      const before = pendingCountsFromHistory(beforeList);
+      const after = pendingCountsFromHistory(afterList);
+
+      const parts = [
+        backupCollectionChanges("Reserviert geändert", before.give || {}, after.give || {}),
+        backupCollectionChanges("Erwartet geändert", before.get || {}, after.get || {}),
+        backupCurrentPendingPanel(after)
+      ].filter(Boolean);
+
+      return parts.join("");
+    }
+
+    function backupChangesHtml() {
+      const baselineRaw = localStorage.getItem(BACKUP_STATE_KEY);
+      if (!baselineRaw) {
+        return "";
+      }
+
+      const before = safeParseBackupState(baselineRaw);
+      const after = currentBackupState();
+      const pendingHtml = backupPendingChanges(before.tradeHistory || [], after.tradeHistory || []);
+
+      const parts = [
+        backupCollectionChanges("Doppelte Karten", before.database || {}, after.database || {}),
+        backupCollectionChanges("Gesuchte Karten", before.wishlist || {}, after.wishlist || {}),
+        backupTradeChanges(before.tradeHistory || [], after.tradeHistory || []),
+        pendingHtml,
+        backupPriceChanges(before.prices || {}, after.prices || {})
+      ].filter(Boolean);
+
+      if (!parts.length) {
+        return "";
+      }
+
+      return `<h3>Änderungen seit letztem Backup</h3>${parts.join("")}`;
+    }
+
+    function updateBackupPopupStatus() {
+      const status = document.getElementById("backupPopupStatus");
+      if (status) status.innerHTML = backupPopupStatusHtml();
+
+      const changes = document.getElementById("backupChangesPanel");
+      if (changes) {
+        const html = backupChangesHtml();
+        changes.innerHTML = html;
+        changes.style.display = html ? "" : "none";
+      }
+    }
+
+    function openBackupPopup() {
+      const overlay = document.getElementById("backupPopupOverlay");
+      if (!overlay) return;
+      updateBackupPopupStatus();
+      overlay.classList.add("show");
+    }
+
+    function closeBackupPopup(event = null) {
+      if (event && event.target && event.target.id !== "backupPopupOverlay") return;
+      const overlay = document.getElementById("backupPopupOverlay");
+      if (overlay) overlay.classList.remove("show");
+    }
+
     function renderMetrics() {
       let totalCards = 0, totalValue = 0;
       Object.entries(database).forEach(([number, count]) => {
         const info = getInfo(number);
         totalCards += count;
-        totalValue += count * (prices[info.category] || 0);
+        totalValue += count * (categoryPrice(info.category));
       });
 
       const wantedTotal = countCards(wishlist);
@@ -3395,27 +4338,30 @@ oder exakt: Florian Wirtz"></textarea>
           savedMetric.textContent = localStorage.getItem(SAVE_TIME_KEY) || "Startliste";
         }
       }
+      updateBackupPopupStatus();
     }
 
     function renderCategoryTable() {
+      const valueCategories = CATEGORY_ORDER.filter(category => !isExcludedValueCategory(category));
       const stats = {};
-      CATEGORY_ORDER.forEach(category => stats[category] = { count: 0, value: 0 });
+      valueCategories.forEach(category => stats[category] = { count: 0, value: 0 });
 
       Object.entries(database).forEach(([number, count]) => {
         const info = getInfo(number);
+        if (isExcludedValueCategory(info.category)) return;
         if (!stats[info.category]) stats[info.category] = { count: 0, value: 0 };
         stats[info.category].count += count;
-        stats[info.category].value += count * (prices[info.category] || 0);
+        stats[info.category].value += count * categoryPrice(info.category);
       });
 
       const tbody = document.getElementById("categoryTable");
       tbody.innerHTML = "";
-      CATEGORY_ORDER.forEach(category => {
+      valueCategories.forEach(category => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td><span class="pill">${category}</span></td>
           <td>${stats[category].count}</td>
-          <td>${euro(prices[category] || 0)}</td>
+          <td>${priceCell(category)}</td>
           <td><strong>${euro(stats[category].value)}</strong></td>
         `;
         tbody.appendChild(tr);
@@ -3427,7 +4373,7 @@ oder exakt: Florian Wirtz"></textarea>
       const filter = document.getElementById("categoryFilter").value;
       let rows = Object.entries(database).map(([number, count]) => {
         const info = getInfo(number);
-        const price = prices[info.category] || 0;
+        const price = categoryPrice(info.category);
         return { ...info, count, price, value: count * price };
       });
 
@@ -3487,13 +4433,13 @@ oder exakt: Florian Wirtz"></textarea>
       renderGroupedRows(tbody, rows, 8, row => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td><strong>${displayCardId(row.number)}</strong></td>
+          <td><strong>${displayListCardId(row.number)}</strong></td>
           <td>${row.name}</td>
           <td>${row.team}</td>
           <td>${countWithReservation(row.count, row.number, "give")}</td>
           <td><span class="pill">${row.category}</span></td>
-          <td>${euro(row.price)}</td>
-          <td><strong>${euro(row.value)}</strong></td>
+          <td>${priceCell(row.category)}</td>
+          <td><strong>${valueCell(row.category, row.value)}</strong></td>
           <td>
             <div class="inline-actions">
               <button onclick='quickAdd(${JSON.stringify(row.number)})'>+1</button>
@@ -3530,18 +4476,18 @@ oder exakt: Florian Wirtz"></textarea>
       renderGroupedRows(tbody, rows, 9, card => {
         const doubleCount = database[card.number] || 0;
         const wantedCount = wishlist[card.number] || 0;
-        const price = prices[card.category] || 0;
+        const price = categoryPrice(card.category);
 
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td><strong>${displayCardId(card.number)}</strong></td>
+          <td><strong>${displayListCardId(card.number)}</strong></td>
           <td>${card.name}</td>
           <td>${card.team}</td>
           <td><span class="pill">${card.category}</span></td>
           <td>${countWithReservation(doubleCount, card.number, "give")}</td>
           <td>${countWithReservation(wantedCount, card.number, "get")}</td>
-          <td>${euro(price)}</td>
-          <td><strong>${euro(doubleCount * price)}</strong></td>
+          <td>${priceCell(card.category)}</td>
+          <td><strong>${valueCell(card.category, doubleCount * price)}</strong></td>
           <td>
             <div class="catalog-actions compact">
               <button type="button" class="secondary" onclick='openCatalogChoice(event, ${JSON.stringify(card.number)}, 1)'>+</button>
@@ -3901,7 +4847,7 @@ oder exakt: Florian Wirtz"></textarea>
 
       let rows = Object.entries(wishlist).map(([number, count]) => {
         const info = getInfo(number);
-        const price = prices[info.category] || 0;
+        const price = categoryPrice(info.category);
         return { ...info, count, price, value: count * price };
       });
 
@@ -3930,12 +4876,12 @@ oder exakt: Florian Wirtz"></textarea>
       renderGroupedRows(tbody, rows, 6, row => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td><strong>${displayCardId(row.number)}</strong></td>
+          <td><strong>${displayListCardId(row.number)}</strong></td>
           <td>${row.name}</td>
           <td>${row.team}</td>
           <td><span class="pill">${row.category}</span></td>
           <td class="wishlist-count-cell">${countWithReservation(row.count, row.number, "get")}</td>
-          <td><strong>${euro(row.value)}</strong></td>
+          <td><strong>${valueCell(row.category, row.value)}</strong></td>
         `;
         return tr;
       });
@@ -3955,7 +4901,7 @@ oder exakt: Florian Wirtz"></textarea>
         const info = getInfo(number);
         const available = database[number] || 0;
         const calculated = Math.min(requested, available);
-        const value = calculated * (prices[info.category] || 0);
+        const value = calculated * (categoryPrice(info.category));
         giveValue += value;
         giveCount += calculated;
 
@@ -3978,7 +4924,7 @@ oder exakt: Florian Wirtz"></textarea>
       sortEntries(Object.entries(get).map(([number, count]) => [number, count])).forEach(([number, requested]) => {
         const info = getInfo(number);
         const wanted = wishlist[number] || 0;
-        const value = requested * (prices[info.category] || 0);
+        const value = requested * (categoryPrice(info.category));
         getValue += value;
         getCount += requested;
         const reserved = reservedCount(number, "get", editingTradeId);
@@ -4033,13 +4979,13 @@ oder exakt: Florian Wirtz"></textarea>
         tr.className = `trade-detail-row ${type}`;
         tr.innerHTML = `
           <td>${sidePill(row.side)}</td>
-          <td><strong>${displayCardId(row.number)}</strong></td>
+          <td><strong>${displayListCardId(row.number)}</strong></td>
           <td>${row.info.name}</td>
           <td><span class="pill">${row.info.category}</span></td>
           <td>${row.requested}</td>
           <td>${row.reference}</td>
           <td>${row.calculated}</td>
-          <td><strong>${euro(row.value)}</strong></td>
+          <td><strong>${valueCell(row.info.category, row.value)}</strong></td>
           <td>${notePill(row.note)}</td>
         `;
         tbody.appendChild(tr);
@@ -4081,7 +5027,32 @@ oder exakt: Florian Wirtz"></textarea>
       fairEl.className = "value " + tradeDiffClass(diff);
     }
 
+    function resetTradeResultsOnly() {
+      clearSuggestionBox("tradeGiveSuggestions");
+      clearSuggestionBox("tradeGetSuggestions");
+      document.getElementById("tradeTable").innerHTML = `<tr><td colspan="9" style="color:var(--muted);">Noch kein Tausch geprüft.</td></tr>`;
+      document.getElementById("tradeFoot").innerHTML = "";
+      document.getElementById("tradeSummary").style.display = "none";
+      lastTradeResult = null;
+      clearMessage("tradeMessage");
+    }
+
+    function handleTradeInputChange() {
+      if (!tradeLiveMode) return;
+      const giveValue = document.getElementById("tradeGiveInput").value.trim();
+      const getValue = document.getElementById("tradeGetInput").value.trim();
+      clearTimeout(tradeLiveTimer);
+
+      if (!giveValue && !getValue) {
+        resetTradeResultsOnly();
+        return;
+      }
+
+      tradeLiveTimer = setTimeout(() => requestAnimationFrame(calculateTrade), 90);
+    }
+
     function calculateTrade() {
+      tradeLiveMode = true;
       const giveParsed = parseCards(document.getElementById("tradeGiveInput").value, { allowNameSearch: true, suggestAmbiguous: true, splitEveryWord: true });
       const getParsed = parseCards(document.getElementById("tradeGetInput").value, { allowNameSearch: true, suggestAmbiguous: true, splitEveryWord: true });
       renderSuggestions("tradeGiveSuggestions", "tradeGiveInput", giveParsed.suggestions);
@@ -4399,12 +5370,9 @@ oder exakt: Florian Wirtz"></textarea>
       clearEditingTrade();
       document.getElementById("tradeGiveInput").value = "";
       document.getElementById("tradeGetInput").value = "";
-      clearSuggestionBox("tradeGiveSuggestions");
-      clearSuggestionBox("tradeGetSuggestions");
-      document.getElementById("tradeTable").innerHTML = `<tr><td colspan="9" style="color:var(--muted);">Noch kein Tausch geprüft.</td></tr>`;
-      document.getElementById("tradeFoot").innerHTML = "";
-      document.getElementById("tradeSummary").style.display = "none";
-      lastTradeResult = null;
+      tradeLiveMode = false;
+      clearTimeout(tradeLiveTimer);
+      resetTradeResultsOnly();
       if (clearMessage) showMessage("tradeMessage", "Tauschfelder geleert.", "info");
     }
 
@@ -4424,8 +5392,12 @@ oder exakt: Florian Wirtz"></textarea>
         return `${displayCardId(key)}${amount}`;
       }
 
-      if (category === "Limited Edition" || category === "LE Squad DFB") {
+      if (category === "Limited Edition") {
         return `${info.name} LE${amount}`;
+      }
+
+      if (category === "LE Squad DFB") {
+        return `${info.name} DFBLE${amount}`;
       }
 
       if (category === "Premium LE Silber") {
@@ -4433,7 +5405,7 @@ oder exakt: Florian Wirtz"></textarea>
       }
 
       if (category === "Premium Gold LE") {
-        return `${info.name} Premium Gold LE${amount}`;
+        return `${info.name} PGLE${amount}`;
       }
 
       if (category === "Momentum LE") {
@@ -4442,6 +5414,10 @@ oder exakt: Florian Wirtz"></textarea>
 
       if (category === "Exclusive LE Update Set") {
         return `${info.name} Update LE${amount}`;
+      }
+
+      if (category === "Exclusive LE Final Teams Set") {
+        return `${info.name} Final Teams LE${amount}`;
       }
 
       if (category === "Trophy Card") {
@@ -4634,6 +5610,7 @@ oder exakt: Florian Wirtz"></textarea>
         "Premium Gold LE",
         "Trophy Card",
         "Exclusive LE Update Set",
+        "Exclusive LE Final Teams Set",
         "Momentum LE"
       ].includes(category);
     }
@@ -4805,11 +5782,12 @@ oder exakt: Florian Wirtz"></textarea>
       return {
         app: "Panini Adrenalyn XL World Cup 2026 Trading Manager",
         version: 4,
+        cardIdVersion: 69,
         exportedAt: new Date().toISOString(),
         database,
         wishlist,
         tradeHistory,
-        prices
+        prices: { ...prices, ...Object.fromEntries(EXCLUDED_VALUE_CATEGORIES.map(category => [category, 0])) }
       };
     }
 
@@ -4857,10 +5835,11 @@ oder exakt: Florian Wirtz"></textarea>
     function applyImportedBackup(imported) {
       if (!imported.database || typeof imported.database !== "object") throw new Error("Keine Liste gefunden.");
 
-      database = imported.database;
+      const importedNeedsMigration = Number(imported.cardIdVersion || 0) < 68;
+      database = importedNeedsMigration ? migrateCardCollectionIds(imported.database) : imported.database;
 
       if (imported.wishlist && typeof imported.wishlist === "object") {
-        wishlist = imported.wishlist;
+        wishlist = importedNeedsMigration ? migrateCardCollectionIds(imported.wishlist) : imported.wishlist;
         localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
       } else {
         wishlist = {};
@@ -4868,7 +5847,7 @@ oder exakt: Florian Wirtz"></textarea>
       }
 
       if (Array.isArray(imported.tradeHistory)) {
-        tradeHistory = imported.tradeHistory;
+        tradeHistory = importedNeedsMigration ? migrateTradeHistoryIds(imported.tradeHistory) : imported.tradeHistory;
         localStorage.setItem(HISTORY_KEY, JSON.stringify(tradeHistory.slice(0, 30)));
       } else {
         tradeHistory = [];
@@ -4877,6 +5856,7 @@ oder exakt: Florian Wirtz"></textarea>
 
       if (imported.prices && typeof imported.prices === "object") {
         prices = { ...DEFAULT_PRICES, ...imported.prices };
+        EXCLUDED_VALUE_CATEGORIES.forEach(category => prices[category] = 0);
         localStorage.setItem(PRICE_KEY, JSON.stringify(prices));
         renderPriceSettings();
       }
@@ -4941,14 +5921,6 @@ oder exakt: Florian Wirtz"></textarea>
       reader.readAsText(file);
     }
 
-    function restoreInitial() {
-      if (!confirm("Ursprüngliche doppelte Karten laden? Deine aktuelle Liste wird dadurch überschrieben.")) return;
-      pushUndoState("Ursprüngliche doppelte Karten laden");
-      database = parseCards(INITIAL_RAW).result;
-      saveDatabase();
-      showMessage("resetMessage", "Ursprüngliche Liste wurde geladen.", "ok");
-    }
-
     function clearDatabase() {
       if (!confirm("Liste wirklich komplett leeren? Das kann nicht rückgängig gemacht werden, außer du hast ein Backup.")) return;
       database = {};
@@ -5011,12 +5983,70 @@ oder exakt: Florian Wirtz"></textarea>
     window.addEventListener("resize", scheduleStickyTableHeaders);
     window.addEventListener("load", scheduleStickyTableHeadersAfterLoad);
 
+    const filterDebounceTimers = {};
+
+    function renderFilterNow(inputId) {
+      clearTimeout(filterDebounceTimers[inputId]);
+      if (inputId === "catalogSearch") renderCatalog();
+      if (inputId === "searchInput") renderAll();
+      if (inputId === "wishlistSearch") renderWishlist();
+    }
+
+    function scheduleFilterRender(inputId) {
+      clearTimeout(filterDebounceTimers[inputId]);
+      filterDebounceTimers[inputId] = setTimeout(() => requestAnimationFrame(() => renderFilterNow(inputId)), 80);
+    }
+
+    function setupFilterClearButtons() {
+      ["catalogSearch", "searchInput", "wishlistSearch"].forEach(id => {
+        const input = document.getElementById(id);
+        if (!input || input.dataset.clearReady === "1") return;
+
+        input.removeAttribute("oninput");
+        const wrapper = document.createElement("span");
+        wrapper.className = "filter-clear-wrap";
+        input.parentNode.insertBefore(wrapper, input);
+        wrapper.appendChild(input);
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "filter-clear-btn";
+        btn.setAttribute("aria-label", "Filter löschen");
+        btn.textContent = "×";
+        wrapper.appendChild(btn);
+
+        const update = () => wrapper.classList.toggle("has-value", !!input.value);
+
+        btn.addEventListener("pointerdown", event => {
+          event.preventDefault();
+        });
+
+        btn.addEventListener("click", event => {
+          event.preventDefault();
+          input.value = "";
+          wrapper.classList.remove("has-value");
+          renderFilterNow(id);
+          input.focus();
+        });
+
+        input.addEventListener("input", () => {
+          update();
+          scheduleFilterRender(id);
+        });
+
+        input.dataset.clearReady = "1";
+        update();
+      });
+    }
+
     function init() {
       loadPrices();
       loadDatabase();
       loadWishlist();
       loadHistory();
+      finishLegacyCardIdMigration();
       fillCategoryFilters();
+      setupFilterClearButtons();
       renderPriceSettings();
       renderAll();
       renderCatalog();
